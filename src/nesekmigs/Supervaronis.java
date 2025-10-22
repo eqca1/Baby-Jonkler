@@ -3,7 +3,10 @@ package nesekmigs;
 public class Supervaronis {
 
 	private String VARDS, IZCELSME, MOTIVS;
-	private int DZIVSK, HP, SPEKS, VECUMS, AIZS;
+	private int DZIVSK, HP;
+	private int SPEKS;
+	private int VECUMS;
+	private int AIZS;
 	
 	 // konstruktors
 	
@@ -46,11 +49,16 @@ public class Supervaronis {
 	    }
 	  
 	  public int noteiktAIZS() {
-	        return VECUMS;
+	        return AIZS;
 	    }
 
 	  public int noteiktVECUMS() {
 	        return VECUMS;
+	    }
+	    public void palielinatSPEKS(int n) {
+	        if (n > 0) {
+	            this.SPEKS += n;
+	        }
 	    }
 	  
 	  public String Izvadit() {
