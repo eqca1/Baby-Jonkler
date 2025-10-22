@@ -89,10 +89,6 @@ public class Gotema {
 			break;
 			
 			
-			
-			
-			
-			
 			case 4:
 				JOptionPane.showMessageDialog(null, "Programma apturēta~", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
 				break;
