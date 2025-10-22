@@ -39,6 +39,8 @@ public class Metodes {
             }
         }
     }
+    
+
 	
     static JSlider bidjosla(JOptionPane jop, int max) {
     	

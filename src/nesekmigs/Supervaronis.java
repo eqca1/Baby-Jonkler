@@ -55,9 +55,10 @@ public class Supervaronis {
 	  public int noteiktVECUMS() {
 	        return VECUMS;
 	    }
-	    public void palielinatSPEKS(int n) {
+	  public void izmainitSPEKU(int n, boolean PalielinVaiSamazin) {
 	        if (n > 0) {
-	            this.SPEKS += n;
+	        	if(PalielinVaiSamazin) this.SPEKS += n;
+	        	else this.SPEKS -= n;
 	        }
 	    }
 	  
