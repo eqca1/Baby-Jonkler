@@ -9,47 +9,61 @@ public class Supervaronis {
 	
     public Supervaronis(int DZIVSK, int HP, int SPEKS, int VECUMS, int AIZS, String VARDS
     		, String IZCELSME, String MOTIVS) {
-        this.VARDS = VARDS;
+        this.VARDS = VARDS; 
+        this.VECUMS = VECUMS;
         this.IZCELSME = IZCELSME;
         this.MOTIVS = MOTIVS;
         this.DZIVSK = DZIVSK;
         this.HP = HP;
         this.SPEKS = SPEKS;
-        this.VECUMS = VECUMS;
         this.AIZS = AIZS;
         
     }
     
     // metodes
-    public String VARDS() {
+    public String noteiktVARDS() {
         return VARDS;
     }
     
-    public String IZCELSME() {
+    public String noteiktIZCELSME() {
         return IZCELSME;
     }
     
-    public String MOTIVS() {
+    public String noteiktMOTIVS() {
         return MOTIVS;
     }
     
-	  public int DZIVSK() {
+	  public int noteiktDZIVSK() {
         return DZIVSK;
     }
 	  
-	  public int HP() {
+	  public int noteiktHP() {
 	        return HP;
 	    }
 	  
-	  public int SPEKS() {
+	  public int noteiktSPEKS() {
 	        return SPEKS;
 	    }
 	  
-	  public int AIZS() {
+	  public int noteiktAIZS() {
 	        return VECUMS;
 	    }
 
-	  public int VECUMS() {
+	  public int noteiktVECUMS() {
 	        return VECUMS;
 	    }
+	  
+	  public String Izvadit() {
+		  return "\n > Supervaroņa vārds - " + VARDS +
+				  "\n | Vecums - " + VECUMS + " gadi" +
+				  "\n | Izcelsme - " + IZCELSME +
+				  "\n | Motīvs - \" " + MOTIVS + " \" " +
+				  "\n | Dzīvību skaits " + DZIVSK +
+				  "\n | Veselība - " + HP + " HP"+
+				  "\n | Spēks - " + SPEKS + " ATK" +
+				  "\n | Aizsardziba - " + AIZS + " DEF" +
+				  "\n ";
+	  
+		
+	  }
 }
