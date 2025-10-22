@@ -4,18 +4,14 @@
 
 
 **Pabeigtās klases**
-- [ ] Gotema(galvenā klase)
-- [ ] Supervaronis(
-- [ ] Dzokers
-- [ ] Betmens 
+- [ ] Gotema_(galvenā klase)_
+- [ ] Supervaronis_(virsklase)_
+- [ ] Dzokers_(apakšklase)_
+- [ ] Betmens_(apakšklase)_
 
 
-**Darāmo darbu saraksts**
-- [x] Uzsākta lokāla Java projekta versionēšana ar Git
-- [x] Izveidots GitHub konts
-- [x] Izveidota GitHub krātuve(repo)
-- [x] Lokālā projekta versija izvietota GitHub
-- [ ] Projektam pieslēdzies vēl viens programmētājs un izmēģināta kopdarbošanas
-- [ ] Projektā ieviests jauns zars(branch)
-- [ ] Sapludināti zari un novērsts *merge* konflikts
-- [ ] Izmeģināts *pull request*
+**Programmas funkciju saraksts**
+- [ ] Jaumus klašu objektus veidošana
+- [ ] Objektus apskatīšana
+- [ ] Objektus dzēšana
+- [ ] Raksturojošās metodes izsaukšana
