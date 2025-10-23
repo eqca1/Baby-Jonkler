@@ -21,44 +21,40 @@ private int IZVAIRISANA;
 		this.IZVAIRISANA = IZVAIRISANA;
 	}
 
-	public void pernutj() {
+	public void dzonkleraorganismaizvaddati() {
 		
 	}
 
     public void smieties() {
-        String[] laughs = {
-            "Ха-ха-ха! 😄",
-            "Хи-хи-хи! 😂",
-            "Хо-хо-хо! 😆",
-            "Хехехе 😜",
-            "Муа-ха-ха! 😈",
-            "Аха-ха-ха! 🤣"
+        String[] smiekls = {
+            "UAHA-HA-HA-HA-HA-HA-HAA! 😄",
+            "HA-HA-HA-HA! 😂",
+            "uahaHHh-ahAH-ahHA-haHA-Hah-A-HAh-a-hHA-AAA! 😆",
+            "UAHA-HA-HA-HAAAA 😜",
         };
 
-        String[] soundFiles = {
-            "haha.wav",
-            "hihi.wav",
-            "hoho.wav",
-            "hehe.wav",
-            "muahaha.wav",
-            "ahaha.wav"
+        String[] SmiekluFaili = {
+            "smiekls.mp3",
+            "smiekls_1.mp3",
+            "smiekls_2.mp3",
+            "smiekls_3.mp3",
         };
 
         Random rand = new Random();
-        int index = rand.nextInt(laughs.length);
+        int x = rand.nextInt(smiekls.length);
 
-        String randomLaugh = laughs[index];
-        String soundFile = soundFiles[index];
+        String RandomSmiekls = smiekls[x];
+        String soundFile = SmiekluFaili[x];
 
         // Показать сообщение
-        JOptionPane.showMessageDialog(null, randomLaugh, "Смех", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, RandomSmiekls, "Smiekls!", JOptionPane.INFORMATION_MESSAGE);
 
         // Воспроизвести соответствующий звук
         try {
-            File audioFile = new File(soundFile);
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
+            File audioFili = new File(soundFile);
+            AudioInputStream audioS = AudioSystem.getAudioInputStream(audioFili);
             Clip clip = AudioSystem.getClip();
-            clip.open(audioStream);
+            clip.open(audioS);
             clip.start();
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
