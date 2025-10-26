@@ -79,18 +79,18 @@ public class Metodes {
     	
     }
 
-	static int varonaIzvele(ArrayList<Object> riteni) {
+	static int varonaIzvele(ArrayList<Object> varoni) {
 
-		String[] riten = new String[riteni.size()];
-		for(int i=0; i<riten.length; i++) {
+		String[] varon = new String[varoni.size()];
+		for(int i=0; i<varon.length; i++) {
 			
-			riten[i] = (((Velosipeds)riteni.get(i)).noteiktRaz())+" "+(((Velosipeds)riteni.get(i)).noteiktCenu())+" EUR";
+			varon[i] = (((Supervaronis)varoni.get(i)).noteiktVARDS())+" "+(((Supervaronis)varoni.get(i)).noteiktVECUMS())+" gadi. "+(((Supervaronis)varoni.get(i)).noteiktIZCELSME());
 		}
 		
-		String x = (String) JOptionPane.showInputDialog(null, "Izvēlēties riteņu", "Izvēle", JOptionPane.QUESTION_MESSAGE, null,
-				riten, riten[0]);
+		String x = (String) JOptionPane.showInputDialog(null, "Izvēlēties varoni!", "Izvēle", JOptionPane.QUESTION_MESSAGE, null,
+				varon, varon[0]);
 		
-		int izveID = Arrays.asList(riten).indexOf(x);
+		int izveID = Arrays.asList(varon).indexOf(x);
 		
 		return izveID;
 	}    	
