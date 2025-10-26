@@ -1,5 +1,7 @@
 package nesekmigs;
 
+import javax.swing.JOptionPane;
+
 public class Supervaronis {
 
 	private String VARDS, IZCELSME, MOTIVS;
@@ -7,6 +9,8 @@ public class Supervaronis {
 	private int SPEKS;
 	private int VECUMS;
 	private int AIZS;
+    private int maxHP; 
+
 	
 	 // konstruktors
 	
@@ -62,15 +66,34 @@ public class Supervaronis {
 	        }
 	    }
 	  
+	  public void sanemtBojajumu(int bojajums) {
+	        this.HP -= bojajums;
+	        if (this.HP <= 0) {
+	            this.DZIVSK--; // Zaudē vienu dzīvību
+	            if (this.DZIVSK > 0) {
+	                this.HP = this.maxHP; // Atjauno HP, ja vēl ir dzīvības
+	                JOptionPane.showMessageDialog(null, this.VARDS + " zaudēja vienu dzīvību! Atlikušās dzīvības: " + this.DZIVSK, 
+	                        "Zaudēta dzīvība", JOptionPane.WARNING_MESSAGE);
+	            } else {
+	                JOptionPane.showMessageDialog(null, this.VARDS + " ir miris!", "Nāve", JOptionPane.WARNING_MESSAGE);
+	            }
+	        }
+	    }
+	    
+	    // Pārbauda, vai varonis ir dzīvs
+	    public boolean vaiIrDzivs() {
+	        return this.DZIVSK > 0;
+	    }
+	  
 	  public String Izvadit() {
 		  return "\n > Supervaroņa vārds - " + VARDS +
 				  "\n | Vecums - " + VECUMS + " gadi" +
 				  "\n | Izcelsme - " + IZCELSME +
 				  "\n | Motīvs - \" " + MOTIVS + " \" " +
-				  "\n | Dzīvību skaits " + DZIVSK +
+				  "\n | Dzīvību skaits - " + DZIVSK +
 				  "\n | Veselība - " + HP + " HP"+
 				  "\n | Spēks - " + SPEKS + " ATK" +
-				  "\n | Aizsardziba - " + AIZS + " DEF" +
+				  "\n | Aizsardziba - " + AIZS + " DEF("+(AIZS*5)+"%)" +
 				  "\n ";
 	  
 

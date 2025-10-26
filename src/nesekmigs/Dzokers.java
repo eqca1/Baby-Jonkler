@@ -51,6 +51,7 @@ public class Dzokers extends Supervaronis {
             "smiekls_1.mp3", 
             "smiekls_2.mp3",
             "smiekls_3.mp3",
+            "smiekls_4.mp3"
         };
 
         int x = rand.nextInt(smiekls.length);
@@ -97,7 +98,7 @@ public class Dzokers extends Supervaronis {
             "Jauns joks", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    // Mēģina izvairīties no uzbrukuma
+ // Mēģina izvairīties no uzbrukuma
     public boolean izvairities() {
         int izvairisanasVeriba = rand.nextInt(1, 101);
         if (izvairisanasVeriba <= IZVAIRISANA) {
@@ -105,9 +106,9 @@ public class Dzokers extends Supervaronis {
                 "Džokers veikmiģi izvairījās no uzbrukuma! 🃏\n" +
                 "Viņš tikai smejas atkal... 😂", 
                 "Izvairīšanās", JOptionPane.INFORMATION_MESSAGE);
-            return true;
+            return true; // Izvairījās
         }
-        return false;
+        return false; // Neizvairījās
     }
 
     // Uzbrukuma loģika – ar iespēju trāpīt kritisku triecienu

@@ -14,7 +14,7 @@ import javax.swing.JTextArea;
 public class Gotema {
 	
 	
-	public void main(String[]args) {
+	public static void main(String[]args) {
 		
 		String izvele;
 		int izvelesID;
@@ -48,14 +48,14 @@ public class Gotema {
 				
 				case 0: // Supervaronis
 					
-				VARDS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa vārdu!", "Ievade", JOptionPane.PLAIN_MESSAGE));
-				DZIVSK = Metodes.skPar("Ievadiet supervaroņa dzīvibas skaitu!", 1, 2);
-				IZCELSME = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa izcelsmi!", "Ievade", JOptionPane.PLAIN_MESSAGE));
-				MOTIVS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa motivu!", "Ievade", JOptionPane.PLAIN_MESSAGE));
+				VARDS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa vārdu!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(VARDS == null ) break;
+				DZIVSK = Metodes.iestatitArBidjoslu("Ievadiet supervaroņa dzīvibas skaitu!", "Dzīvibu skaits", 2);
+				IZCELSME = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa izcelsmi!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(IZCELSME == null ) break;
+				MOTIVS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa motivu!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(MOTIVS == null ) break;
 
-				VECUMS = Metodes.skPar("Ievadiet supervaroņa vecumu!", 5, 80);
-				HP = Metodes.skPar("Ievadiet supervaroņa maksimālo HP!", 80, 350);
-				SPEKS = Metodes.skPar("Ievadiet supervaroņa spēku (ATK)!", 30, 150);
+				VECUMS = Metodes.skPar("Ievadiet supervaroņa vecumu! ( 5-80 )", 5, 80); if(VECUMS == -1 ) break;
+				HP = Metodes.skPar("Ievadiet supervaroņa maksimālo HP! ( 80-350 )", 80, 350); if(HP == -1 ) break;
+				SPEKS = Metodes.skPar("Ievadiet supervaroņa spēku (ATK)! ( 30-150 )", 30, 150); if(SPEKS == -1 ) break;
 				AIZS =  Metodes.iestatitArBidjoslu("Izvēlēties aizsardzību (DEF)", "Aizsardzību izvēlēšana", 5);
 
 				
@@ -65,14 +65,14 @@ public class Gotema {
 				
 				case 1: // Betmens
 					
-				VARDS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Betmens) vārdu!", "Ievade", JOptionPane.PLAIN_MESSAGE));
-				DZIVSK = Metodes.skPar("Ievadiet supervaroņa(Betmens) dzīvibas skaitu!", 1, 2);
-				IZCELSME = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Betmens) izcelsmi!", "Ievade", JOptionPane.PLAIN_MESSAGE));
-				MOTIVS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Betmens) motivu!", "Ievade", JOptionPane.PLAIN_MESSAGE));
+				VARDS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Betmens) vārdu!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(VARDS == null ) break;
+				DZIVSK = Metodes.iestatitArBidjoslu("Ievadiet supervaroņa(Betmens) dzīvibas skaitu!", "Dzīvibu skaits", 2); System.out.println(DZIVSK);
+				IZCELSME = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Betmens) izcelsmi!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(IZCELSME == null ) break;
+				MOTIVS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Betmens) motivu!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(MOTIVS == null ) break;
 
-				VECUMS = Metodes.skPar("Ievadiet supervaroņa(Betmens) vecumu!", 5, 80);
-				HP = Metodes.skPar("Ievadiet supervaroņa(Betmens) maksimālo HP!", 80, 350);
-				SPEKS = Metodes.skPar("Ievadiet supervaroņa(Betmens) spēku (ATK)!", 30, 150);
+				VECUMS = Metodes.skPar("Ievadiet supervaroņa(Betmens) vecumu! ( 5-80 )", 5, 80); if(VECUMS == -1 ) break;
+				HP = Metodes.skPar("Ievadiet supervaroņa(Betmens) maksimālo HP! ( 80-350 )", 80, 350); if(HP == -1 ) break;
+				SPEKS = Metodes.skPar("Ievadiet supervaroņa(Betmens) spēku (ATK)! ( 30-150 )", 30, 150); if(SPEKS == -1 ) break;
 				AIZS =  Metodes.iestatitArBidjoslu("Izvēlēties supervaroņa(Betmens) aizsardzību (DEF)", "Aizsardzību izvēlēšana", 5);
 
 				String ieroc = (String) JOptionPane.showInputDialog(null, "Vai ir papildu ierocis?", "Izvēle", JOptionPane.QUESTION_MESSAGE,
@@ -88,18 +88,18 @@ public class Gotema {
 				JOptionPane.showMessageDialog(null, "Supervaronis(Betmens) veiksmīgi tika izveidots~", "Veiksme!", JOptionPane.PLAIN_MESSAGE);
 				break;
 				case 2: //Džokers
-				VARDS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Džokers) vārdu!", "Ievade", JOptionPane.PLAIN_MESSAGE));
-				DZIVSK = Metodes.skPar("Ievadiet supervaroņa(Džokers) dzīvibas skaitu!", 1, 2);
-				IZCELSME = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Džokers) izcelsmi!", "Ievade", JOptionPane.PLAIN_MESSAGE));
-				MOTIVS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Džokers) motivu!", "Ievade", JOptionPane.PLAIN_MESSAGE));
+				VARDS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Džokers) vārdu!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(VARDS == null ) break;
+				DZIVSK = Metodes.iestatitArBidjoslu("Ievadiet supervaroņa(Džokers) dzīvibas skaitu!", "Dzīvibu skaits", 2);
+				IZCELSME = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Džokers) izcelsmi!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(IZCELSME == null ) break;
+				MOTIVS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Džokers) motivu!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(MOTIVS == null ) break;
 
-				VECUMS = Metodes.skPar("Ievadiet supervaroņa(Džokers) vecumu!", 5, 80);
-				HP = Metodes.skPar("Ievadiet supervaroņa(Džokers) maksimālo HP!", 80, 350);
-				SPEKS = Metodes.skPar("Ievadiet supervaroņa(Džokers) spēku (ATK)!", 30, 150);
+				VECUMS = Metodes.skPar("Ievadiet supervaroņa(Džokers) vecumu! ( 5-80 )", 5, 80); if(VECUMS == -1 ) break;
+				HP = Metodes.skPar("Ievadiet supervaroņa(Džokers) maksimālo HP! ( 80-350 )", 80, 350); if(HP == -1 ) break;
+				SPEKS = Metodes.skPar("Ievadiet supervaroņa(Džokers) spēku (ATK)! ( 30-150 )", 30, 150); if(SPEKS == -1 ) break;
 				AIZS =  Metodes.iestatitArBidjoslu("Izvēlēties supervaroņa(Džokers) aizsardzību (DEF)", "Aizsardzību izvēlēšana", 5);
 
-				Krit = Metodes.skPar("Ievadiet supervaroņa(Džokers) kritiskā trieciena iespēju!", 15, 60);
-				Izvairisana = Metodes.skPar("Ievadiet supervaroņa(Džokers) izvairīšanās iespēja!", 5, 30);
+				Krit = Metodes.skPar("Ievadiet supervaroņa(Džokers) kritiskā trieciena iespēju! ( 15-60 %)", 15, 60); if(SPEKS == -1 ) break;
+				Izvairisana = Metodes.skPar("Ievadiet supervaroņa(Džokers) izvairīšanās iespēja! ( 5-30 %)", 5, 30); if(SPEKS == -1 ) break;
 
 					
 				varoni.add(new Dzokers(DZIVSK, HP, SPEKS, VECUMS, AIZS, VARDS, IZCELSME, MOTIVS, Krit, Izvairisana));
@@ -204,11 +204,36 @@ public class Gotema {
 			                
 			            case "Uzbrukt":
 			                int bojajums = 0;
-			                if(tagadVaronis instanceof Dzokers) {
-			                    // Džokers uzbruk ar kritu un izvairīšanos
+			                
+			                // Izvēlamies mērķu varoni
+			                ArrayList<Object> dziviVaroni = new ArrayList<>();
+			                for (Object varonis : varoni) {
+			                    if (((Supervaronis) varonis).vaiIrDzivs() && varonis != tagadVaronis) {
+			                        dziviVaroni.add(varonis);
+			                    }
+			                }
+			                
+			                if (dziviVaroni.isEmpty()) {
+			                    JOptionPane.showMessageDialog(null, "Nav neviena mērķa uzbrukumam!", "Kļūda", JOptionPane.WARNING_MESSAGE);
+			                    break;
+			                }
+			                
+			                int merkaID = Metodes.varonaIzvele(dziviVaroni);
+			                Supervaronis merka = (Supervaronis) dziviVaroni.get(merkaID);
+			                
+			                // Pārbauda, vai mērķis ir Džokers un vai viņš izvairās
+			                if (merka instanceof Dzokers) {
+			                    Dzokers dzokersMerka = (Dzokers) merka;
+			                    if (dzokersMerka.izvairities()) {
+			                        // Izvairījās - bojājums netiek nodarīts
+			                        break;
+			                    }
+			                }
+			                
+			                // Aprēķina bojājumu atkarībā no uzbrucēja
+			                if (tagadVaronis instanceof Dzokers) {
 			                    bojajums = ((Dzokers) tagadVaronis).uzbrukt();
-			                } else if(tagadVaronis instanceof Betmens) {
-			                    // Betmens uzbruk ar ieroča bonusu ja tas ir
+			                } else if (tagadVaronis instanceof Betmens) {
 			                    Betmens betmens = (Betmens) tagadVaronis;
 			                    bojajums = betmens.noteiktKopegoBojajumu();
 			                    String ierocaInfo = betmens.vaiIrIerocis() ? 
@@ -216,10 +241,23 @@ public class Gotema {
 			                    JOptionPane.showMessageDialog(null, "Betmens uzbruk! 🦇\nBojājums: " + bojajums + " ATK" + ierocaInfo, 
 			                            "Uzbrukums", JOptionPane.INFORMATION_MESSAGE);
 			                } else {
-			                    // Parasts varonis - vienkāršs uzbrukums
 			                    bojajums = ((Supervaronis) tagadVaronis).noteiktSPEKS();
 			                    JOptionPane.showMessageDialog(null, "Varonis uzbruk! ⚔️\nBojājums: " + bojajums + " ATK", 
 			                            "Uzbrukums", JOptionPane.INFORMATION_MESSAGE);
+			                }
+			                
+			                // Aprēķina faktisko bojājumu, ņemot vērā aizsardzību
+			                int aizsardziba = merka.noteiktAIZS() * 5; // 5% par katru aizsardzības līmeni
+			                int faktiskaisBojajums = (int) (bojajums * (100 - aizsardziba) / 100.0);
+			                
+			                // Nodara bojājumu
+			                merka.sanemtBojajumu(faktiskaisBojajums);
+			                
+			                // Pārbauda, vai mērķis ir miris
+			                if (!merka.vaiIrDzivs()) {
+			                    varoni.remove(merka);
+			                    JOptionPane.showMessageDialog(null, merka.noteiktVARDS() + " ir izslēgts no cīņas! ☠️", 
+			                            "Nāve", JOptionPane.WARNING_MESSAGE);
 			                }
 			                break;
 			                

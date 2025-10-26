@@ -13,32 +13,32 @@ import javax.swing.event.ChangeListener;
 
 public class Metodes {
 
-    static int skPar(String teks, int min, int max) {
-        int z;
-        String iev;
+	static int skPar(String teks, int min, int max) {
+	    int z;
+	    String iev;
 
-        while (true) {
-            iev = JOptionPane.showInputDialog(null, teks);
-            if (iev == null) {
-                return min;
-            }
+	    while (true) {
+	        iev = JOptionPane.showInputDialog(null, teks, "Ievade", JOptionPane.QUESTION_MESSAGE);
+	        if (iev == null) {
+	            return -1;
+	        }
 
-            if (iev.trim().isEmpty()) {
-                continue;
-            }
+	        if (iev.trim().isEmpty()) {
+	            continue;
+	        }
 
-            try {
-                z = Integer.parseInt(iev.trim());
-                if (z < min || z > max) {
-                    JOptionPane.showMessageDialog(null, teks);
-                } else {
-                    return z;
-                }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Klūda!");
-            }
-        }
-    }
+	        try {
+	            z = Integer.parseInt(iev.trim());
+	            if (z < min || z > max) {
+	                JOptionPane.showMessageDialog(null, teks, "Ievade", JOptionPane.WARNING_MESSAGE);
+	            } else {
+	                return z;
+	            }
+	        } catch (NumberFormatException e) {
+	            JOptionPane.showMessageDialog(null, "Klūda!", "Ievade", JOptionPane.ERROR_MESSAGE);
+	        }
+	    }
+	}
     
 
 	
