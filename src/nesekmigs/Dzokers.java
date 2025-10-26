@@ -13,18 +13,20 @@ import javax.swing.JOptionPane;
 
 public class Dzokers extends Supervaronis {
 
-    private int KRIT;
-    private int IZVAIRISANA;
-    private boolean irSpridzins;
-    private Random rand = new Random(); // Добавил Random как поле класса
+    private int KRIT; // Kritiskā trieciena iespēja (%)
+    private int IZVAIRISANA; // Izvairīšanās iespēja (%)
+    private boolean irSpridzins; // Norāda, vai Džokeram ir sprāgstviela
+    private Random rand = new Random();
 
+    // Konstruktors – izveido Džokeru ar unikālām īpašībām
     public Dzokers(int DZIVSK, int HP, int SPEKS, int VECUMS, int AIZS, String VARDS, String IZCELSME, String MOTIVS, int KRIT, int IZVAIRISANA) {
         super(DZIVSK, HP, SPEKS, VECUMS, AIZS, VARDS, IZCELSME, MOTIVS);
         this.KRIT = KRIT;
         this.IZVAIRISANA = IZVAIRISANA;
-        this.irSpridzins = true; // У Джокера всегда есть взрывчатка при создании
+        this.irSpridzins = true; // Džokeram sākumā vienmēr ir sprāgstviela
     }
 
+    // Parāda Džokera īpašos parametrus logā
     public void dzonkleraorganismaizvaddati() {
         String info = "Džokera unikālie parametri:\n" +
                      "Kritiskā trieciena iespēja: " + KRIT + "%\n" +
@@ -35,6 +37,7 @@ public class Dzokers extends Supervaronis {
         JOptionPane.showMessageDialog(null, info, "Džokera organisma dati", JOptionPane.INFORMATION_MESSAGE);
     }
 
+    // Džokers smejas ar izlases skaņu un tekstu
     public void smieties() {
         String[] smiekls = {
             "UAHA-HA-HA-HA-HA-HA-HAA! 😄",
@@ -54,10 +57,10 @@ public class Dzokers extends Supervaronis {
         String RandomSmiekls = smiekls[x];
         String soundFile = SmiekluFaili[x];
 
-        // Показать сообщение
+        // Parāda smieklu tekstu
         JOptionPane.showMessageDialog(null, RandomSmiekls, "Smiekls!", JOptionPane.INFORMATION_MESSAGE);
 
-        // Воспроизвести соответствующий звук
+        // Atskaņo smieklu skaņu
         try {
             File audioFili = new File(soundFile);
             AudioInputStream audioS = AudioSystem.getAudioInputStream(audioFili);
@@ -70,14 +73,15 @@ public class Dzokers extends Supervaronis {
         }
     }
 
+    // Aktivizē sprādzienu, ja tas pieejams
     public void Uzspridzinat() {
         if (irSpridzins) {
-            int bojajums = rand.nextInt(20, 61);
+            int bojajums = rand.nextInt(20, 61); // Izlases bojājuma apjoms
             JOptionPane.showMessageDialog(null, 
                 "BUM! 💥 Izraisīts " + bojajums + " bojājuma punktu sprādziens!\n" +
                 "Visi apkārtējie objekti iznīcināti! 💣", 
                 "Sprādziens", JOptionPane.WARNING_MESSAGE);
-            irSpridzins = false;
+            irSpridzins = false; // Sprāgstviela izlietota
         } else {
             JOptionPane.showMessageDialog(null, 
                 "Nav sprādzienvielu! 😕\nVajag atkal sagatavot kādu joku...", 
@@ -85,6 +89,7 @@ public class Dzokers extends Supervaronis {
         }
     }
 
+    // Sagatavo jaunu sprādzienu (joku)
     public void sagatavotJaunuJoku() {
         irSpridzins = true;
         JOptionPane.showMessageDialog(null, 
@@ -92,6 +97,7 @@ public class Dzokers extends Supervaronis {
             "Jauns joks", JOptionPane.INFORMATION_MESSAGE);
     }
 
+    // Mēģina izvairīties no uzbrukuma
     public boolean izvairities() {
         int izvairisanasVeriba = rand.nextInt(1, 101);
         if (izvairisanasVeriba <= IZVAIRISANA) {
@@ -104,6 +110,7 @@ public class Dzokers extends Supervaronis {
         return false;
     }
 
+    // Uzbrukuma loģika – ar iespēju trāpīt kritisku triecienu
     public int uzbrukt() {
         int pamatBojajums = noteiktSPEKS() / 2;
         int kritVeriba = rand.nextInt(1, 101);
@@ -124,6 +131,7 @@ public class Dzokers extends Supervaronis {
         }
     }
 
+    // Izvada Džokera pilnu informāciju kā tekstu
     @Override
     public String Izvadit() {
         return super.Izvadit() +
@@ -133,19 +141,22 @@ public class Dzokers extends Supervaronis {
                "\n ";
     }
 
+    // Atgriež kritiskā trieciena vērtību
     public int noteiktKrit() {
         return KRIT;
     }
     
+    // Atgriež izvairīšanās vērtību
     public int noteiktIZVAIRISANA() {
         return IZVAIRISANA;
     }
 
+    // Pārbauda, vai ir sprāgstviela
     public boolean vaiIrSpridzins() {
         return irSpridzins;
     }
 
-    // Метод для улучшения характеристик Джокера
+    // Palielina kritiskā trieciena iespēju (līdz 80%)
     public void uzlabotKrit() {
         if (KRIT < 80) {
             KRIT += 5;
@@ -159,6 +170,7 @@ public class Dzokers extends Supervaronis {
         }
     }
 
+    // Palielina izvairīšanās iespēju (līdz 60%)
     public void uzlabotIzvairisanas() {
         if (IZVAIRISANA < 60) {
             IZVAIRISANA += 5;
