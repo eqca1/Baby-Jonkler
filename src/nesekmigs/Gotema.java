@@ -8,10 +8,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import nhk.BernuRitenis;
-import nhk.KalnuRitenis;
-import nhk.Metodes;
-import nhk.Velosipeds;
 
 
 
@@ -34,6 +30,7 @@ public class Gotema {
 		boolean ierocis, gadzets;
 		ArrayList<Object> varoni = new ArrayList<>();
 
+		
 		do {
 			izvele = (String)JOptionPane.showInputDialog(null, "Izvēlies darbību", "Izvēlne", JOptionPane.QUESTION_MESSAGE,
 					null, darbibas, darbibas[0]);
@@ -148,78 +145,154 @@ public class Gotema {
 				
 				
 			case 3: // Varoņa darbības izvēle
-				if(varoni.size()>0) {
-					
-					int NizveID = Metodes.varonaIzvele(varoni);
-					String[] metodes = {"Noteikt varones īpašības", "Iestatīt sēdekli", "Noteikt kustības ātrumu",
-							"Mīties", "Bremzēt", "Noteikt iestatīto ātrumu", "Pārslēgt ātrumu", "Palīgriteņi", "Zvaniņš"};
-
-					String izvele1 = (String) JOptionPane.showInputDialog(null, "Izvēlies metodi", "Metodes izvēle", JOptionPane.QUESTION_MESSAGE,
-							null, metodes, metodes[0]);
-					if(izvele1 == null) {
-						break;
-					}
-					int izvelesID1 = Arrays.asList(metodes).indexOf(izvele1);	
-					switch(izvelesID1) {
-					case 0: // Noteikt varones īpašības
-						((Supervaronis) varoni.get(NizveID)).Izvadit();
-					break;
-					case 1: // 
-						
-						((Velosipeds) riteni.get(NizveID)).iestatitSedeklaPoz(Metodes.iestatitSedekli());
-						JOptionPane.showMessageDialog(null, "Sedekļa pozīcija veiksmīgi iestatīta",
-								"Veiksme", JOptionPane.INFORMATION_MESSAGE);
-					break;
-					case 2:
-						JOptionPane.showMessageDialog(null, "Riteņa kustība ātrums ir "+(((Velosipeds) riteni.get(NizveID)).noteiktAtr())+" m/s.", "Noteikt kustības ātrumu", 
-								JOptionPane.INFORMATION_MESSAGE);
-					break;
-					case 3:
-						((Velosipeds) riteni.get(NizveID)).mities(Integer.parseInt(JOptionPane.showInputDialog(null, "Cik mītienu jūs grībāt uztaisīt?", "Mities", JOptionPane.QUESTION_MESSAGE)));
-					break;
-					case 4: 
-						((Velosipeds) riteni.get(NizveID)).bremzet(Integer.parseInt(JOptionPane.showInputDialog(null, "Cik jūs grībāt uzbremzēt?", "Bremzēt", JOptionPane.QUESTION_MESSAGE)));
-					break;
-					case 5:
-						if(riteni.get(NizveID) instanceof KalnuRitenis) {
-							JOptionPane.showMessageDialog(null, "Iestatītais ātrums ir "+((KalnuRitenis)riteni.get(NizveID)).noteiktIestatAtr()+".", 
-									"Noteikt iestatīto ātrumu", JOptionPane.INFORMATION_MESSAGE);
-						}else JOptionPane.showMessageDialog(null, "Šim riteņa veidam nav iestatītie ātrumi~", "Kļūda", JOptionPane.ERROR_MESSAGE);
-						
-					break;
-					case 6:
-						if(riteni.get(NizveID) instanceof KalnuRitenis) {
-							((KalnuRitenis) riteni.get(NizveID)).parslegtAtr(Metodes.iestatitAtrumu());
-						}else JOptionPane.showMessageDialog(null, "Šim riteņa veidam nav iestatītie ātrumi~", "Kļūda", JOptionPane.ERROR_MESSAGE);
-					break;
-					case 7:
-						if(riteni.get(NizveID) instanceof BernuRitenis) {
-							boolean darbiba;
-							String izv2 = (String) JOptionPane.showInputDialog(null, "Veikt darbību ar palīgrīteņiem?", "Izvēle", JOptionPane.QUESTION_MESSAGE,
-									null, atbilde, atbilde[0]);
-							if(izv2 == null || izv2 == "Nē") darbiba = false; 
-							else darbiba = true;
-							
-							((BernuRitenis)riteni.get(NizveID)).darbArPaligrit(darbiba);
-						}else JOptionPane.showMessageDialog(null, "Šim riteņa veidam nav palīgriteņi~", "Kļūda", JOptionPane.ERROR_MESSAGE);
-			
-					break;
-						case 8:
-						if(riteni.get(NizveID) instanceof BernuRitenis) {
-							((BernuRitenis)riteni.get(NizveID)).zvanitZvaninu();
-						}else JOptionPane.showMessageDialog(null, "Šim riteņa veidam nav zvaniņš~", "Kļūda", JOptionPane.ERROR_MESSAGE);
-						
-					break;
-					}
-					
-				}else {
-					JOptionPane.showMessageDialog(null, "Sarakstā nav neviens ritenis!", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
-					break;
-				}
-				break;
-				
-				
-				break;
+			    if(varoni.size()>0) {
+			        int NizveID = Metodes.varonaIzvele(varoni);
+			        Object tagadVaronis = varoni.get(NizveID);
+			        
+			        // Izveidojam metožu sarakstu atkarībā no varoņa tipa
+			        ArrayList<String> dotasMetodes = new ArrayList<>();
+			        
+			        // Metodes visiem varoņiem
+			        dotasMetodes.add("Parādīt varoņa ipašības");
+			        dotasMetodes.add("Mainīt spēku");
+			        dotasMetodes.add("Uzbrukt");
+			        
+			        // Unikālās metodes Betmenam
+			        if(tagadVaronis instanceof Betmens) {
+			            dotasMetodes.add("Trenēties");
+			            dotasMetodes.add("Pārbaudīt ieroci");
+			            dotasMetodes.add("Mainīt ieroci");
+			            dotasMetodes.add("Nonemt ieroci");
+			            dotasMetodes.add("Izmantot gadžetu");
+			            dotasMetodes.add("Pārbaudīt gadžetu");
+			        }
+			        
+			        // Unikālās metodes Džokeram
+			        if(tagadVaronis instanceof Dzokers) {
+			            dotasMetodes.add("Džokera organisma dati");
+			            dotasMetodes.add("Smejies");
+			            dotasMetodes.add("Uzspridzināt");
+			            dotasMetodes.add("Sagatavot jaunu joku");
+			            dotasMetodes.add("Izvairīties");
+			            dotasMetodes.add("Uzlabot kritisko triecienu");
+			            dotasMetodes.add("Uzlabot izvairīšanos");
+			        }
+			        
+			        String[] metodes = dotasMetodes.toArray(new String[0]);
+			        
+			        String izvele1 = (String) JOptionPane.showInputDialog(null, "Izvēlies metodi", "Metodes izvēle", JOptionPane.QUESTION_MESSAGE,
+			                null, metodes, metodes[0]);
+			        if(izvele1 == null) {
+			            break;
+			        }
+			        
+			        switch(izvele1) {
+			            case "Parādīt varoņa ipašības":
+			                String info = ((Supervaronis) tagadVaronis).Izvadit();
+			                JOptionPane.showMessageDialog(null, info, "Varoņa informācija", JOptionPane.INFORMATION_MESSAGE);
+			                break;
+			                
+			            case "Mainīt spēku":
+			                int spekaIzmaina = Metodes.skPar("Cik mainīt spēku? (pozitīvs skaitlis)", 1, 100);
+			                String[] options = {"Palielināt", "Samazināt"};
+			                int choice = JOptionPane.showOptionDialog(null, "Kā mainīt spēku?", "Spēka maiņa", 
+			                        JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+			                boolean palielinat = (choice == 0);
+			                ((Supervaronis) tagadVaronis).izmainitSPEKU(spekaIzmaina, palielinat);
+			                JOptionPane.showMessageDialog(null, "Spēks veiksmīgi mainīts!", "Veiksme", JOptionPane.INFORMATION_MESSAGE);
+			                break;
+			                
+			            case "Uzbrukt":
+			                int bojajums = 0;
+			                if(tagadVaronis instanceof Dzokers) {
+			                    // Džokers uzbruk ar kritu un izvairīšanos
+			                    bojajums = ((Dzokers) tagadVaronis).uzbrukt();
+			                } else if(tagadVaronis instanceof Betmens) {
+			                    // Betmens uzbruk ar ieroča bonusu ja tas ir
+			                    Betmens betmens = (Betmens) tagadVaronis;
+			                    bojajums = betmens.noteiktKopegoBojajumu();
+			                    String ierocaInfo = betmens.vaiIrIerocis() ? 
+			                            " (ieskaitot ieroča bonusu: " + betmens.noteiktIerocaBonusu() + " ATK)" : "";
+			                    JOptionPane.showMessageDialog(null, "Betmens uzbruk! 🦇\nBojājums: " + bojajums + " ATK" + ierocaInfo, 
+			                            "Uzbrukums", JOptionPane.INFORMATION_MESSAGE);
+			                } else {
+			                    // Parasts varonis - vienkāršs uzbrukums
+			                    bojajums = ((Supervaronis) tagadVaronis).noteiktSPEKS();
+			                    JOptionPane.showMessageDialog(null, "Varonis uzbruk! ⚔️\nBojājums: " + bojajums + " ATK", 
+			                            "Uzbrukums", JOptionPane.INFORMATION_MESSAGE);
+			                }
+			                break;
+			                
+			            case "Trenēties":
+			                ((Betmens) tagadVaronis).treneties();
+			                break;
+			                
+			            case "Pārbaudīt ieroci":
+			                boolean irIerocis = ((Betmens) tagadVaronis).vaiIrIerocis();
+			                if(irIerocis) {
+			                    int bonuss = ((Betmens) tagadVaronis).noteiktIerocaBonusu();
+			                    JOptionPane.showMessageDialog(null, "Ierocis: IR 🗡️\nBonuss: " + bonuss + " ATK", 
+			                            "Ieroča pārbaude", JOptionPane.INFORMATION_MESSAGE);
+			                } else {
+			                    JOptionPane.showMessageDialog(null, "Ierocis: NAV ❌", 
+			                            "Ieroča pārbaude", JOptionPane.INFORMATION_MESSAGE);
+			                }
+			                break;
+			                
+			            case "Mainīt ieroci":
+			                ((Betmens) tagadVaronis).mainitIeroci();
+			                break;
+			                
+			            case "Nonemt ieroci":
+			                ((Betmens) tagadVaronis).nonemtIerocu();
+			                break;
+			                
+			            case "Izmantot gadžetu":
+			                ((Betmens) tagadVaronis).izmantotGadzetu();
+			                break;
+			                
+			            case "Pārbaudīt gadžetu":
+			                boolean irGadzets = ((Betmens) tagadVaronis).noteiktGadzets();
+			                JOptionPane.showMessageDialog(null, "Gadžets: " + (irGadzets ? "IR 🔧" : "NAV ❌"), 
+			                        "Gadžeta pārbaude", JOptionPane.INFORMATION_MESSAGE);
+			                break;
+			                
+			            case "Džokera organisma dati":
+			                ((Dzokers) tagadVaronis).dzonkleraorganismaizvaddati();
+			                break;
+			                
+			            case "Smejies":
+			                ((Dzokers) tagadVaronis).smieties();
+			                break;
+			                
+			            case "Uzspridzināt":
+			                ((Dzokers) tagadVaronis).Uzspridzinat();
+			                break;
+			                
+			            case "Sagatavot jaunu joku":
+			                ((Dzokers) tagadVaronis).sagatavotJaunuJoku();
+			                break;
+			                
+			            case "Izvairīties":
+			                boolean izvairijas = ((Dzokers) tagadVaronis).izvairities();
+			                if(!izvairijas) {
+			                    JOptionPane.showMessageDialog(null, "Džokers neizvairījās! 💥", 
+			                            "Izvairīšanās", JOptionPane.INFORMATION_MESSAGE);
+			                }
+			                break;
+			                
+			            case "Uzlabot kritisko triecienu":
+			                ((Dzokers) tagadVaronis).uzlabotKrit();
+			                break;
+			                
+			            case "Uzlabot izvairīšanos":
+			                ((Dzokers) tagadVaronis).uzlabotIzvairisanas();
+			                break;
+			        }
+			    } else {
+			        JOptionPane.showMessageDialog(null, "Sarakstā nav neviens varonis!", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
+			    }
+			    break;
 			case 4:
 				JOptionPane.showMessageDialog(null, "Programma apturēta~", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
 				break;

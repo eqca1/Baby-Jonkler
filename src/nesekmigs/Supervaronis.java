@@ -73,6 +73,6 @@ public class Supervaronis {
 				  "\n | Aizsardziba - " + AIZS + " DEF" +
 				  "\n ";
 	  
-		// ТёМА ГЕЙ
+
 	  }
 }
