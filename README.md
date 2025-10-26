@@ -4,10 +4,10 @@
 
 
 **Pabeigtās klases**
-- [ ] Gotema_(galvenā klase)_
-- [ ] Supervaronis_(virsklase)_
-- [ ] Dzokers_(apakšklase)_
-- [ ] Betmens_(apakšklase)_
+- [ ] Gotema _(galvenā klase)_
+- [ ] Supervaronis _(virsklase)_
+- [ ] Dzokers _(apakšklase)_
+- [ ] Betmens _(apakšklase)_
 
 
 **Programmas funkciju saraksts**
