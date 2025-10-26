@@ -4,14 +4,14 @@
 
 
 **Pabeigtās klases**
-- [ ] Gotema _(galvenā klase)_
-- [ ] Supervaronis _(virsklase)_
-- [ ] Dzokers _(apakšklase)_
-- [ ] Betmens _(apakšklase)_
-
+- [x] Gotema _(galvenā klase)_
+- [x] Supervaronis _(virsklase)_
+- [x] Dzokers _(apakšklase)_
+- [x] Betmens _(apakšklase)_
+- [x] Metodes _(palīgklase)_
 
 **Programmas funkciju saraksts**
-- [ ] Jaumus klašu objektus veidošana
-- [ ] Objektus apskatīšana
-- [ ] Objektus dzēšana
-- [ ] Raksturojošās metodes izsaukšana
+- [x] Jaumus klašu objektus veidošana
+- [x] Objektus apskatīšana
+- [x] Objektus dzēšana
+- [x] Raksturojošās metodes izsaukšana
