@@ -1,14 +1,11 @@
 package nesekmigs;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Random;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JOptionPane;
 
 public class Dzokers extends Supervaronis {
@@ -37,38 +34,36 @@ public class Dzokers extends Supervaronis {
         JOptionPane.showMessageDialog(null, info, "Džokera organisma dati", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    // Džokers smejas ar izlases skaņu un tekstu
     public void smieties() {
         String[] smiekls = {
             "UAHA-HA-HA-HA-HA-HA-HAA! 😄",
-            "HA-HA-HA-HA! 😂", 
+            "HA-HA-HA-HA! 😂",
             "uahaHHh-ahAH-ahHA-haHA-Hah-A-HAh-a-hHA-AAA! 😆",
             "UAHA-HA-HA-HAAAA 😜",
         };
 
-        String[] SmiekluFaili = {
-            "smiekls.mp3",
-            "smiekls_1.mp3", 
-            "smiekls_2.mp3",
-            "smiekls_3.mp3",
-            "smiekls_4.mp3"
+        String[] smiekluFaili = {
+            "./audio/smiekls.wav",
+            "./audio/smiekls_1.wav",
+            "./audio/smiekls_2.wav",
+            "./audio/smiekls_3.wav"
         };
 
         int x = rand.nextInt(smiekls.length);
-        String RandomSmiekls = smiekls[x];
-        String soundFile = SmiekluFaili[x];
+        String randomSmiekls = smiekls[x];
+        String soundFile = smiekluFaili[x];
 
         // Parāda smieklu tekstu
-        JOptionPane.showMessageDialog(null, RandomSmiekls, "Smiekls!", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, randomSmiekls, "Smiekls!", JOptionPane.INFORMATION_MESSAGE);
 
-        // Atskaņo smieklu skaņu
+        // Atskaņo WAV failu
         try {
-            File audioFili = new File(soundFile);
-            AudioInputStream audioS = AudioSystem.getAudioInputStream(audioFili);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioS);
-            clip.start();
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            File f = new File(soundFile);
+            AudioInputStream ais = AudioSystem.getAudioInputStream(f.toURI().toURL());
+            Clip c = AudioSystem.getClip();
+            c.open(ais);
+            c.start();
+        } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Nevar atskaņot smieklu skaņu! 😢", "Kļūda", JOptionPane.ERROR_MESSAGE);
         }
