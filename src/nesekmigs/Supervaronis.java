@@ -9,7 +9,7 @@ public class Supervaronis {
 	private int SPEKS;
 	private int VECUMS;
 	private int AIZS;
-    private int maxHP; 
+     
 
 	
 	 // konstruktors
@@ -67,18 +67,33 @@ public class Supervaronis {
 	    }
 	  
 	  public void sanemtBojajumu(int bojajums) {
-	        this.HP -= bojajums;
-	        if (this.HP <= 0) {
-	            this.DZIVSK--; // Zaudē vienu dzīvību
-	            if (this.DZIVSK > 0) {
-	                this.HP = this.maxHP; // Atjauno HP, ja vēl ir dzīvības
-	                JOptionPane.showMessageDialog(null, this.VARDS + " zaudēja vienu dzīvību! Atlikušās dzīvības: " + this.DZIVSK, 
-	                        "Zaudēta dzīvība", JOptionPane.WARNING_MESSAGE);
-	            } else {
-	                JOptionPane.showMessageDialog(null, this.VARDS + " ir miris!", "Nāve", JOptionPane.WARNING_MESSAGE);
-	            }
-	        }
-	    }
+		    this.HP -= bojajums;
+		    if (this.HP <= 0) {
+		        this.DZIVSK--; // Zaudē vienu dzīvību
+		        if (this.DZIVSK > 0) {
+		            this.HP = 100; // Vienkāršs HP atjaunošanas sistēma
+		            JOptionPane.showMessageDialog(null, 
+		                this.VARDS + " zaudēja vienu dzīvību! \nAtlikušās dzīvības: " + this.DZIVSK + 
+		                "\nHP atjaunots uz 100", 
+		                "Zaudēta dzīvība", JOptionPane.WARNING_MESSAGE);
+		        } else {
+		            // Nāves skaņa
+		            try {
+		                java.io.File f = new java.io.File("./audio/death.wav");
+		                javax.sound.sampled.AudioInputStream ais = javax.sound.sampled.AudioSystem.getAudioInputStream(f.toURI().toURL());
+		                javax.sound.sampled.Clip c = javax.sound.sampled.AudioSystem.getClip();
+		                c.open(ais);
+		                c.start();
+		            } catch (Exception e) {
+		                System.out.println("Nevar atskaņot nāves skaņu");
+		            }
+		            
+		            JOptionPane.showMessageDialog(null, 
+		                this.VARDS + " ir miris! 💀", 
+		                "Nāve", JOptionPane.WARNING_MESSAGE);
+		        }
+		    }
+		}
 	    
 	    // Pārbauda, vai varonis ir dzīvs
 	    public boolean vaiIrDzivs() {

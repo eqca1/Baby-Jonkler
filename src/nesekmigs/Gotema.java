@@ -14,6 +14,17 @@ import javax.swing.JTextArea;
 
 public class Gotema {
 	
+	private static void atskaņotSkanu(String soundFile) {
+	    try {
+	        java.io.File f = new java.io.File(soundFile);
+	        javax.sound.sampled.AudioInputStream ais = javax.sound.sampled.AudioSystem.getAudioInputStream(f.toURI().toURL());
+	        javax.sound.sampled.Clip c = javax.sound.sampled.AudioSystem.getClip();
+	        c.open(ais);
+	        c.start();
+	    } catch (Exception e) {
+	        System.out.println("Nevar atskaņot skaņu: " + soundFile);
+	    }
+	}
 	
 	public static void main(String[]args) {
 		Random rand = new Random();
@@ -218,27 +229,39 @@ public class Gotema {
 				break;
 			
 			case 2: // Varoņu saraksts
-				if(varoni.size()>0) {
-					String str = "Varoņu skaits~ "+varoni.size()+
-							"\n___________________\n";
-					for(int i=0; i<varoni.size(); i++) {
-						
-						str += ((Supervaronis)varoni.get(i)).Izvadit()+
-								"\n___________________\n";
-						}
-					JTextArea textArea = new JTextArea(str);
-					textArea.setEditable(false);
-					textArea.setLineWrap(true);
-					textArea.setWrapStyleWord(true);
+			    if(varoni.size() > 0) {
+			        String str = "Varoņu skaits~ "+varoni.size()+"\n";
+			        str += "___________________\n\n";
+			        
+			        for(int i=0; i<varoni.size(); i++) {
+			            Object varonis = varoni.get(i);
+			            
+			            String e = "";
+			            if(varonis instanceof Dzokers) {
+			                e = " Džokers: ";
+			            } else if(varonis instanceof Betmens) {
+			                e = " Betmens: ";
+			            } else {
+			                e = " Varonis: ";
+			            }
+			            str += e + "\n";
+			            str += ((Supervaronis)varonis).Izvadit() + "\n";
+			            str += "________________\n\n";
+			        }
+			        
+			        JTextArea textArea = new JTextArea(str);
+			        textArea.setEditable(false);
+			        textArea.setLineWrap(true);
+			        textArea.setWrapStyleWord(true);
 
-					JScrollPane scrollPane = new JScrollPane(textArea);
-					scrollPane.setPreferredSize(new Dimension(500, 500));
+			        JScrollPane scrollPane = new JScrollPane(textArea);
+			        scrollPane.setPreferredSize(new Dimension(500, 500));
 
-					JOptionPane.showMessageDialog(null, scrollPane, "Varoņu saraksts", JOptionPane.INFORMATION_MESSAGE);
-		}else{
-				JOptionPane.showMessageDialog(null, "Sarakstā nav neviens varonis!", "Brīdinājums", JOptionPane.WARNING_MESSAGE);}
-				break;
-				
+			        JOptionPane.showMessageDialog(null, scrollPane, "Varoņu saraksts 🦸‍♂️", JOptionPane.INFORMATION_MESSAGE);
+			    } else {
+			        JOptionPane.showMessageDialog(null, "Sarakstā nav neviens varonis!", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
+			    }
+			    break;
 				
 				
 				
@@ -300,6 +323,8 @@ public class Gotema {
 			                JOptionPane.showMessageDialog(null, "Spēks veiksmīgi mainīts!", "Veiksme", JOptionPane.INFORMATION_MESSAGE);
 			                break;
 			                
+			                
+			                //UZBRŪGT
 			            case "Uzbrukt":
 			                int bojajums = 0;
 			                
@@ -317,11 +342,11 @@ public class Gotema {
 			                }
 			                
 			                int merkaID = Metodes.varonaIzvele(dziviVaroni);
-			                Supervaronis merka = (Supervaronis) dziviVaroni.get(merkaID);
+			                Supervaronis merkis = (Supervaronis) dziviVaroni.get(merkaID);
 			                
 			                // Pārbauda, vai mērķis ir Džokers un vai viņš izvairās
-			                if (merka instanceof Dzokers) {
-			                    Dzokers dzokersMerka = (Dzokers) merka;
+			                if (merkis instanceof Dzokers) {
+			                    Dzokers dzokersMerka = (Dzokers) merkis;
 			                    if (dzokersMerka.izvairities()) {
 			                        // Izvairījās - bojājums netiek nodarīts
 			                        break;
@@ -329,33 +354,50 @@ public class Gotema {
 			                }
 			                
 			                // Aprēķina bojājumu atkarībā no uzbrucēja
+			                String uzbrukumaTeksts = "";
 			                if (tagadVaronis instanceof Dzokers) {
 			                    bojajums = ((Dzokers) tagadVaronis).uzbrukt();
+			                    uzbrukumaTeksts = "🎭 Džokers uzbruk!";
 			                } else if (tagadVaronis instanceof Betmens) {
 			                    Betmens betmens = (Betmens) tagadVaronis;
 			                    bojajums = betmens.noteiktKopegoBojajumu();
 			                    String ierocaInfo = betmens.vaiIrIerocis() ? 
 			                            " (ieskaitot ieroča bonusu: " + betmens.noteiktIerocaBonusu() + " ATK)" : "";
-			                    JOptionPane.showMessageDialog(null, "Betmens uzbruk! 🦇\nBojājums: " + bojajums + " ATK" + ierocaInfo, 
-			                            "Uzbrukums", JOptionPane.INFORMATION_MESSAGE);
+			                    uzbrukumaTeksts = "🦇 Betmens uzbruk! \nBojājums: " + bojajums + " ATK" + ierocaInfo;
+			                    JOptionPane.showMessageDialog(null, uzbrukumaTeksts, "Uzbrukums", JOptionPane.INFORMATION_MESSAGE);
 			                } else {
-			                    bojajums = ((Supervaronis) tagadVaronis).noteiktSPEKS();
-			                    JOptionPane.showMessageDialog(null, "Varonis uzbruk! ⚔️\nBojājums: " + bojajums + " ATK", 
-			                            "Uzbrukums", JOptionPane.INFORMATION_MESSAGE);
+			                    bojajums = ((Supervaronis) tagadVaronis).noteiktSPEKS() / 2; // Samazināts no 100% uz 50%
+			                    uzbrukumaTeksts = "🦸 Varonis uzbruk! \nBojājums: " + bojajums + " ATK";
+			                    JOptionPane.showMessageDialog(null, uzbrukumaTeksts, "Uzbrukums", JOptionPane.INFORMATION_MESSAGE);
 			                }
 			                
 			                // Aprēķina faktisko bojājumu, ņemot vērā aizsardzību
-			                int aizsardziba = merka.noteiktAIZS() * 5; // 5% par katru aizsardzības līmeni
-			                int faktiskaisBojajums = (int) (bojajums * (100 - aizsardziba) / 100.0);
+			                int aizsardziba = merkis.noteiktAIZS() * 5; // 5% par katru aizsardzības līmeni
+			                int faktiskaisBojajums = Math.max(1, (int) (bojajums * (100 - aizsardziba) / 100.0));
 			                
 			                // Nodara bojājumu
-			                merka.sanemtBojajumu(faktiskaisBojajums);
+			                int vecaisHP = merkis.noteiktHP();
+			                merkis.sanemtBojajumu(faktiskaisBojajums);
+			                
+			                // Parāda cik daudz bojājuma tika nodarīts
+			                JOptionPane.showMessageDialog(null, 
+			                    uzbrukumaTeksts + "\n" +
+			                    merkis.noteiktVARDS() + " saņēma " + faktiskaisBojajums + " bojājuma!\n" +
+			                    "HP pirms: " + vecaisHP + " | HP pēc: " + merkis.noteiktHP(),
+			                    "Bojājuma rezultāts", JOptionPane.INFORMATION_MESSAGE);
 			                
 			                // Pārbauda, vai mērķis ir miris
-			                if (!merka.vaiIrDzivs()) {
-			                    varoni.remove(merka);
-			                    JOptionPane.showMessageDialog(null, merka.noteiktVARDS() + " ir izslēgts no cīņas! ☠️", 
-			                            "Nāve", JOptionPane.WARNING_MESSAGE);
+			                if (!merkis.vaiIrDzivs()) {
+			                    // Atskaņo victory sound
+			                    atskaņotSkanu("./audio/victory.wav");
+			                    
+			                    JOptionPane.showMessageDialog(null, 
+			                        "⚔️ " + ((Supervaronis)tagadVaronis).noteiktVARDS() + " UZVARĒJA! ⚔️\n" +
+			                        merkis.noteiktVARDS() + " ir zaudējis cīņu! 💀\n\n" +
+			                        "Uzvarētājs: " + ((Supervaronis)tagadVaronis).noteiktVARDS() + " 🏆",
+			                        "Cīņas Rezultāts", JOptionPane.WARNING_MESSAGE);
+			                    
+			                    varoni.remove(merkis);
 			                }
 			                break;
 			                
@@ -367,10 +409,10 @@ public class Gotema {
 			                boolean irIerocis = ((Betmens) tagadVaronis).vaiIrIerocis();
 			                if(irIerocis) {
 			                    int bonuss = ((Betmens) tagadVaronis).noteiktIerocaBonusu();
-			                    JOptionPane.showMessageDialog(null, "Ierocis: IR 🗡️\nBonuss: " + bonuss + " ATK", 
+			                    JOptionPane.showMessageDialog(null, "Ierocis: IR \nBonuss: " + bonuss + " ATK", 
 			                            "Ieroča pārbaude", JOptionPane.INFORMATION_MESSAGE);
 			                } else {
-			                    JOptionPane.showMessageDialog(null, "Ierocis: NAV ❌", 
+			                    JOptionPane.showMessageDialog(null, "Ierocis: NAV ", 
 			                            "Ieroča pārbaude", JOptionPane.INFORMATION_MESSAGE);
 			                }
 			                break;
@@ -389,7 +431,7 @@ public class Gotema {
 			                
 			            case "Pārbaudīt gadžetu":
 			                boolean irGadzets = ((Betmens) tagadVaronis).noteiktGadzets();
-			                JOptionPane.showMessageDialog(null, "Gadžets: " + (irGadzets ? "IR 🔧" : "NAV ❌"), 
+			                JOptionPane.showMessageDialog(null, "Gadžets: " + (irGadzets ? "IR " : "NAV "), 
 			                        "Gadžeta pārbaude", JOptionPane.INFORMATION_MESSAGE);
 			                break;
 			                
@@ -412,7 +454,7 @@ public class Gotema {
 			            case "Izvairīties":
 			                boolean izvairijas = ((Dzokers) tagadVaronis).izvairities();
 			                if(!izvairijas) {
-			                    JOptionPane.showMessageDialog(null, "Džokers neizvairījās! 💥", 
+			                    JOptionPane.showMessageDialog(null, "Džokers neizvairījās! ", 
 			                            "Izvairīšanās", JOptionPane.INFORMATION_MESSAGE);
 			                }
 			                break;
