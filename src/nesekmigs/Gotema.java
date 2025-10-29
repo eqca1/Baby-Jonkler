@@ -3,6 +3,7 @@ package nesekmigs;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -15,6 +16,7 @@ public class Gotema {
 	
 	
 	public static void main(String[]args) {
+		Random rand = new Random();
 		
 		String izvele;
 		int izvelesID;
@@ -48,10 +50,41 @@ public class Gotema {
 				
 				case 0: // Supervaronis
 					
-				VARDS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa vārdu!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(VARDS == null ) break;
+					String[] varonaVardi = {"Gaismas Sargs", "Spēka Vīrs", "Atbildības Nestājs", "Varoņa Sirds", "Taisnības Cīnītājs"};
+					String noklusejumaVardsVaronim = varonaVardi[rand.nextInt(varonaVardi.length)];
+
+					VARDS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa vārdu! ( Piemēram: Varonis )", "Ievade", JOptionPane.PLAIN_MESSAGE));
+					if(VARDS == null || VARDS.trim().isEmpty()) {
+					    VARDS = noklusejumaVardsVaronim;
+					}
+					
 				DZIVSK = Metodes.iestatitArBidjoslu("Ievadiet supervaroņa dzīvibas skaitu!", "Dzīvibu skaits", 2);
-				IZCELSME = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa izcelsmi!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(IZCELSME == null ) break;
-				MOTIVS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa motivu!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(MOTIVS == null ) break;
+				
+				IZCELSME = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa izcelsmi!", "Ievade", JOptionPane.PLAIN_MESSAGE));
+				if(IZCELSME == null) break;
+				if(IZCELSME.trim().isEmpty()) {
+				    String[] varonaIzcelsmes = {
+				        "Rāvalda kabinets - kur sapņi saskaras ar realitāti",
+				        "Mazpilsētas lauku māja - kur vienkāršība rada varoņus",
+				        "Zinātnieku ģimene - kur eksperiments deva vairāk nekā gaidīja", 
+				        "Universitātes laboratorija - kur nejauša kļūda rada leģendu",
+				        "Vienkārša cilvēka dzīve - līdz liktenim bija citi plāni"
+				    };
+				    IZCELSME = varonaIzcelsmes[new Random().nextInt(varonaIzcelsmes.length)];
+				}
+				
+				MOTIVS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa motivu!", "Ievade", JOptionPane.PLAIN_MESSAGE));
+				if(MOTIVS == null) break;
+				if(MOTIVS.trim().isEmpty()) {
+				    String[] varonaMotivi = {
+				        "Ar lielu spēku nāk liela atbildība... Kādam tam ir jāpiekrīt",
+				        "Es redzu cilvēkus... Un es varu tos apturēt. Vienkārši tāpat",
+				        "Pasaulei vajag varoņus, nevis vēl vienu slēptu identitāti",
+				        "Mans spēks ir zvērs... Bet mans prāts ir tā važa",
+				        "Es neizvēlējos šo dzīvi... tā izvēlējās mani"
+				    };
+				    MOTIVS = varonaMotivi[new Random().nextInt(varonaMotivi.length)];
+				}
 
 				VECUMS = Metodes.skPar("Ievadiet supervaroņa vecumu! ( 5-80 )", 5, 80); if(VECUMS == -1 ) break;
 				HP = Metodes.skPar("Ievadiet supervaroņa maksimālo HP! ( 80-350 )", 80, 350); if(HP == -1 ) break;
@@ -65,10 +98,42 @@ public class Gotema {
 				
 				case 1: // Betmens
 					
-				VARDS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Betmens) vārdu!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(VARDS == null ) break;
+					// Iestatītu vardu randoms
+				String[] betmenaVardi = {"Tumsas Jātnieks", "Vilks", "Kaujas Vīrs", "Tumsas Sargs", "Nakts Sargs"};
+				String noklusejumaVardsBetmenam = betmenaVardi[rand.nextInt(betmenaVardi.length)];
+
+				VARDS = (String)(JOptionPane.showInputDialog(null, "Ievadiet Betmena vārdu! ( Piemēram: Betmens )", "Ievade", JOptionPane.PLAIN_MESSAGE));
+					if(VARDS == null || VARDS.trim().isEmpty()) {
+					    VARDS = noklusejumaVardsBetmenam;
+					}
+					
 				DZIVSK = Metodes.iestatitArBidjoslu("Ievadiet supervaroņa(Betmens) dzīvibas skaitu!", "Dzīvibu skaits", 2); System.out.println(DZIVSK);
-				IZCELSME = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Betmens) izcelsmi!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(IZCELSME == null ) break;
-				MOTIVS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Betmens) motivu!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(MOTIVS == null ) break;
+				
+				IZCELSME = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Betmens) izcelsmi!", "Ievade", JOptionPane.PLAIN_MESSAGE));
+				if(IZCELSME == null) break;
+				if(IZCELSME.trim().isEmpty()) {
+				    String[] betmenaIzcelsmes = {
+				        "Gotemas augšējo aprindu ģimene - miljonāra bērns ar traģisku pagātni",
+				        "Veinu ģimenes pils - kur katrs akmens runā par mantojumu un parādiem", 
+				        "Gotemas biznesa impērija - kur nauda plūst blakus noziedzībai",
+				        "LVT - iestāde, kas slēpj tumsu",
+				        "Gotemas naktīs - kur bērns zaudēja visu un atrada mērķi"
+				    };
+				    IZCELSME = betmenaIzcelsmes[new Random().nextInt(betmenaIzcelsmes.length)];
+				}
+				
+				MOTIVS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Betmens) motivu!", "Ievade", JOptionPane.PLAIN_MESSAGE));
+				if(MOTIVS == null) break;
+				if(MOTIVS.trim().isEmpty()) {
+				    String[] betmenaMotivi = {
+				        "Mans vecākus nošāva noziedzības ielās... Es taisīšu tā, lai neviens cits nepiedzīvo to, ko es",
+				        "Gotema ir slima, un es esmu tās ārsts. Ārsts ar nūjām un dūķiem",
+				        "Es esmu briesmīgāk par briesmām. Es esmu tumsas sargs",
+				        "Bagātība ir mans līdzeklis, bet stipendija ir mans mērķis",
+				        "Es neradu baumas... Es esmu baumas"
+				    };
+				    MOTIVS = betmenaMotivi[new Random().nextInt(betmenaMotivi.length)];
+				}
 
 				VECUMS = Metodes.skPar("Ievadiet supervaroņa(Betmens) vecumu! ( 5-80 )", 5, 80); if(VECUMS == -1 ) break;
 				HP = Metodes.skPar("Ievadiet supervaroņa(Betmens) maksimālo HP! ( 80-350 )", 80, 350); if(HP == -1 ) break;
@@ -87,11 +152,44 @@ public class Gotema {
 				varoni.add(new Betmens(DZIVSK, HP, SPEKS, VECUMS, AIZS, VARDS, IZCELSME, MOTIVS, ierocis, gadzets ));
 				JOptionPane.showMessageDialog(null, "Supervaronis(Betmens) veiksmīgi tika izveidots~", "Veiksme!", JOptionPane.PLAIN_MESSAGE);
 				break;
+				
 				case 2: //Džokers
-				VARDS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Džokers) vārdu!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(VARDS == null ) break;
+					
+					String[] dzokeraVardi = {"Joku Princis", "Haosa Jātnieks", "Smejas Vīrs", "Sarkanie Lūpi", "Joku Kēniņš"};
+					String noklusejumaVardsDzokeram = dzokeraVardi[rand.nextInt(dzokeraVardi.length)];
+
+					VARDS = (String)(JOptionPane.showInputDialog(null, "Ievadiet Džokera vārdu! ( Piemēram: Džokers )", "Ievade", JOptionPane.PLAIN_MESSAGE));
+					if(VARDS == null || VARDS.trim().isEmpty()) {
+					    VARDS = noklusejumaVardsDzokeram;
+					}
+					
 				DZIVSK = Metodes.iestatitArBidjoslu("Ievadiet supervaroņa(Džokers) dzīvibas skaitu!", "Dzīvibu skaits", 2);
-				IZCELSME = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Džokers) izcelsmi!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(IZCELSME == null ) break;
-				MOTIVS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Džokers) motivu!", "Ievade", JOptionPane.PLAIN_MESSAGE)); if(MOTIVS == null ) break;
+				
+				IZCELSME = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Džokers) izcelsmi!", "Ievade", JOptionPane.PLAIN_MESSAGE));
+				if(IZCELSME == null) break;
+				if(IZCELSME.trim().isEmpty()) {
+				    String[] dzokeraIzcelsmes = {
+				        "Žurku konalizācija - kur ķīmija sajaucās ar prātu",
+				        "Gotemas apakšpasaules labirinti - kur pazuda cilvēcība", 
+				        "LVT psihiatriskā slimnīca - kur prāts beidzās un joki sākās",
+				        "Liepājas kanalizācija - kur izmetamais atrod dzīvību",
+				        "Neidentificēta izcelsme - pats Džokers to aizmirsis"
+				    };
+				    IZCELSME = dzokeraIzcelsmes[new Random().nextInt(dzokeraIzcelsmes.length)];
+				}
+				
+				MOTIVS = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Džokers) motivu!", "Ievade", JOptionPane.PLAIN_MESSAGE));
+				if(MOTIVS == null) break;
+				if(MOTIVS.trim().isEmpty()) {
+				    String[] dzokeraMotivi = {
+				        "Visa šī pasaule ir viens liels joks... Un es esmu tā atklājējs!",
+				        "Kāpēc nopietni? Pasaule ir trakāka par mani! AH-HA-HA-HA!",
+				        "Es negribu naudu, es negribu varu... Es gribu tikai redzēt pasauli!",
+				        "Viena slikta diena var padarīt jebkuru par mani... Es tikai parādīju to visiem!",
+				        "Kāda starpība starp manu seju un šo pasauli? Abas ir trakas!"
+				    };
+				    MOTIVS = dzokeraMotivi[new Random().nextInt(dzokeraMotivi.length)];
+				}
 
 				VECUMS = Metodes.skPar("Ievadiet supervaroņa(Džokers) vecumu! ( 5-80 )", 5, 80); if(VECUMS == -1 ) break;
 				HP = Metodes.skPar("Ievadiet supervaroņa(Džokers) maksimālo HP! ( 80-350 )", 80, 350); if(HP == -1 ) break;
