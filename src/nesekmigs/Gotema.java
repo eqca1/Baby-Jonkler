@@ -27,6 +27,9 @@ public class Gotema {
 	}
 	
 	public static void main(String[]args) {
+		
+		atskaņotSkanu("./audio/intro.wav");
+		
 		Random rand = new Random();
 		
 		String izvele;
