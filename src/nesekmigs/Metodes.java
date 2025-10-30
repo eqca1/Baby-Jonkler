@@ -1,8 +1,10 @@
 package nesekmigs;
 
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -13,6 +15,8 @@ import javax.swing.event.ChangeListener;
 
 public class Metodes {
 
+	
+	
 	static int skPar(String teks, int min, int max) {
 	    int z;
 	    String iev;
@@ -94,7 +98,16 @@ public class Metodes {
 		
 		return izveID;
 	}    	
-
+	static ImageIcon ieladetAttelu(String failaNosaukums, int platums, int augstums) {
+	    try {
+	        ImageIcon originalaisAttels = new ImageIcon(failaNosaukums);
+	        Image mērogotsAttels = originalaisAttels.getImage().getScaledInstance(platums, augstums, Image.SCALE_SMOOTH);
+	        return new ImageIcon(mērogotsAttels);
+	    } catch (Exception e) {
+	        System.out.println("Nevarēja ielādēt attēlu: " + failaNosaukums);
+	        return null;
+	    }
+	}
     	
     	
     

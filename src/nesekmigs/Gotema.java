@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -109,9 +110,13 @@ public class Gotema {
 
 				
 				varoni.add(new Supervaronis(DZIVSK, HP, SPEKS, VECUMS, AIZS, VARDS, IZCELSME, MOTIVS));
-				JOptionPane.showMessageDialog(null, "Supervaronis veiksmīgi tika izveidots~", "Veiksme!", JOptionPane.PLAIN_MESSAGE);
+				ImageIcon supervaronaAttels = Metodes.ieladetAttelu("./atteli/Supervaronis.jpg", 200, 200); //Pievienojam attēlu
+				JOptionPane.showMessageDialog(null, 
+						"<html><div style='font-size:16pt; text-align:center; font-weight:bold'>Supervaronis<br>veiksmīgi tika izveidots~</div></html>", 
+				    "Veiksme!", 
+				    JOptionPane.PLAIN_MESSAGE, 
+				    supervaronaAttels); 
 				break;
-				
 				case 1: // Betmens
 					
 					// Iestatītu vardu randoms
@@ -151,10 +156,10 @@ public class Gotema {
 				    MOTIVS = betmenaMotivi[new Random().nextInt(betmenaMotivi.length)];
 				}
 
-				VECUMS = Metodes.skPar("Ievadiet supervaroņa(Betmens) vecumu! ( 5-80 )", 5, 80); if(VECUMS == -1 ) break;
-				HP = Metodes.skPar("Ievadiet supervaroņa(Betmens) maksimālo HP! ( 80-350 )", 80, 350); if(HP == -1 ) break;
-				SPEKS = Metodes.skPar("Ievadiet supervaroņa(Betmens) spēku (ATK)! ( 30-150 )", 30, 150); if(SPEKS == -1 ) break;
-				AIZS =  Metodes.iestatitArBidjoslu("Izvēlēties supervaroņa(Betmens) aizsardzību (DEF)", "Aizsardzību izvēlēšana", 5);
+				VECUMS = Metodes.skPar("Ievadiet Betmena vecumu! ( 5-80 )", 5, 80); if(VECUMS == -1 ) break;
+				HP = Metodes.skPar("Ievadiet Betmena maksimālo HP! ( 80-350 )", 80, 350); if(HP == -1 ) break;
+				SPEKS = Metodes.skPar("Ievadiet Betmena spēku (ATK)! ( 30-150 )", 30, 150); if(SPEKS == -1 ) break;
+				AIZS =  Metodes.iestatitArBidjoslu("Izvēlēties Betmena aizsardzību (DEF)", "Aizsardzību izvēlēšana", 5);
 
 				String ieroc = (String) JOptionPane.showInputDialog(null, "Vai ir papildu ierocis?", "Izvēle", JOptionPane.QUESTION_MESSAGE,
 						null, atbilde, atbilde[0]);
@@ -166,9 +171,13 @@ public class Gotema {
 				else gadzets = true;
 				
 				varoni.add(new Betmens(DZIVSK, HP, SPEKS, VECUMS, AIZS, VARDS, IZCELSME, MOTIVS, ierocis, gadzets ));
-				JOptionPane.showMessageDialog(null, "Supervaronis(Betmens) veiksmīgi tika izveidots~", "Veiksme!", JOptionPane.PLAIN_MESSAGE);
+				ImageIcon betmenaAttels = Metodes.ieladetAttelu("./atteli/Betmens.jpg", 200, 200);
+				JOptionPane.showMessageDialog(null, 
+						"<html><div style='font-size:16pt; text-align:center; font-weight:bold'>Betmens<br>veiksmīgi tika izveidots~</div></html>", 
+				    "Veiksme!", 
+				    JOptionPane.PLAIN_MESSAGE, 
+				    betmenaAttels);
 				break;
-				
 				case 2: //Džokers
 					
 					String[] dzokeraVardi = {"Joku Princis", "Haosa Jātnieks", "Smejas Vīrs", "Sarkanie Lūpi", "Joku Kēniņš"};
@@ -179,9 +188,9 @@ public class Gotema {
 					    VARDS = noklusejumaVardsDzokeram;
 					}
 					
-				DZIVSK = Metodes.iestatitArBidjoslu("Ievadiet supervaroņa(Džokers) dzīvibas skaitu!", "Dzīvibu skaits", 2);
+				DZIVSK = Metodes.iestatitArBidjoslu("Ievadiet Džokera dzīvibas skaitu!", "Dzīvibu skaits", 2);
 				
-				IZCELSME = (String)(JOptionPane.showInputDialog(null, "Ievadiet supervaroņa(Džokers) izcelsmi!", "Ievade", JOptionPane.PLAIN_MESSAGE));
+				IZCELSME = (String)(JOptionPane.showInputDialog(null, "Ievadiet Džokera izcelsmi!", "Ievade", JOptionPane.PLAIN_MESSAGE));
 				if(IZCELSME == null) break;
 				if(IZCELSME.trim().isEmpty()) {
 				    String[] dzokeraIzcelsmes = {
@@ -207,17 +216,22 @@ public class Gotema {
 				    MOTIVS = dzokeraMotivi[new Random().nextInt(dzokeraMotivi.length)];
 				}
 
-				VECUMS = Metodes.skPar("Ievadiet supervaroņa(Džokers) vecumu! ( 5-80 )", 5, 80); if(VECUMS == -1 ) break;
-				HP = Metodes.skPar("Ievadiet supervaroņa(Džokers) maksimālo HP! ( 80-350 )", 80, 350); if(HP == -1 ) break;
-				SPEKS = Metodes.skPar("Ievadiet supervaroņa(Džokers) spēku (ATK)! ( 30-150 )", 30, 150); if(SPEKS == -1 ) break;
-				AIZS =  Metodes.iestatitArBidjoslu("Izvēlēties supervaroņa(Džokers) aizsardzību (DEF)", "Aizsardzību izvēlēšana", 5);
+				VECUMS = Metodes.skPar("Ievadiet Džokera vecumu! ( 5-80 )", 5, 80); if(VECUMS == -1 ) break;
+				HP = Metodes.skPar("Ievadiet Džokera maksimālo HP! ( 80-350 )", 80, 350); if(HP == -1 ) break;
+				SPEKS = Metodes.skPar("Ievadiet Džokera spēku (ATK)! ( 30-150 )", 30, 150); if(SPEKS == -1 ) break;
+				AIZS =  Metodes.iestatitArBidjoslu("Izvēlēties Džokera aizsardzību (DEF)", "Aizsardzību izvēlēšana", 5);
 
-				Krit = Metodes.skPar("Ievadiet supervaroņa(Džokers) kritiskā trieciena iespēju! ( 15-60 %)", 15, 60); if(SPEKS == -1 ) break;
-				Izvairisana = Metodes.skPar("Ievadiet supervaroņa(Džokers) izvairīšanās iespēja! ( 5-30 %)", 5, 30); if(SPEKS == -1 ) break;
+				Krit = Metodes.skPar("Ievadiet Džokera kritiskā trieciena iespēju! ( 15-60 %)", 15, 60); if(SPEKS == -1 ) break;
+				Izvairisana = Metodes.skPar("Ievadiet Džokera izvairīšanās iespēja! ( 5-30 %)", 5, 30); if(SPEKS == -1 ) break;
 
 					
 				varoni.add(new Dzokers(DZIVSK, HP, SPEKS, VECUMS, AIZS, VARDS, IZCELSME, MOTIVS, Krit, Izvairisana));
-				JOptionPane.showMessageDialog(null, "Supervaronis(Džokers) veiksmīgi tika izveidots~", "Veiksme!", JOptionPane.PLAIN_MESSAGE);
+				ImageIcon dzokeraAttels = Metodes.ieladetAttelu("./atteli/Dzokers.jpg", 200, 200);
+				JOptionPane.showMessageDialog(null, 
+						"<html><div style='font-size:16pt; text-align:center; font-weight:bold'>Džokers<br>veiksmīgi tika izveidots~</div></html>", 
+				    "Veiksme!", 
+				    JOptionPane.PLAIN_MESSAGE, 
+				    dzokeraAttels);
 				break;
 			}
 			break;
@@ -388,7 +402,7 @@ public class Gotema {
 			                JOptionPane.showMessageDialog(null, 
 			                    uzbrukumaTeksts + "\n" +
 			                    merkis.noteiktVARDS() + " saņēma " + faktiskaisBojajums + " bojājuma!\n" +
-			                    "HP pirms: " + vecaisHP + " | HP pēc: " + merkis.noteiktHP(),
+			                    "HP pirms: " + vecaisHP + " | HP pēc: " + (merkis.noteiktHP() < 0 ? 0 : merkis.noteiktHP()),
 			                    "Bojājuma rezultāts", JOptionPane.INFORMATION_MESSAGE);
 			                
 			                // Pārbauda, vai mērķis ir miris
