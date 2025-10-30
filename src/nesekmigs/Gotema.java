@@ -27,7 +27,7 @@ public class Gotema {
 	}
 	
 	public static void main(String[]args) {
-		
+	
 		atskaņotSkanu("./audio/intro.wav");
 		
 		Random rand = new Random();
@@ -395,7 +395,7 @@ public class Gotema {
 			                    atskaņotSkanu("./audio/victory.wav");
 			                    
 			                    JOptionPane.showMessageDialog(null, 
-			                        "⚔️ " + ((Supervaronis)tagadVaronis).noteiktVARDS() + " UZVARĒJA!\n" +
+			                        ((Supervaronis)tagadVaronis).noteiktVARDS() + " UZVARĒJA!\n" +
 			                        merkis.noteiktVARDS() + " ir zaudējis cīņu!\n\n" +
 			                        "Uzvarētājs: " + ((Supervaronis)tagadVaronis).noteiktVARDS(),
 			                        "Cīņas Rezultāts", JOptionPane.WARNING_MESSAGE);
