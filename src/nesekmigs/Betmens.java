@@ -33,10 +33,10 @@ public class Betmens extends Supervaronis {
     public void izmantotGadzetu() {
         if(gadzets) {
             int gadzetaBojajums = rand.nextInt(70, 201);
-            JOptionPane.showMessageDialog(null, "Betmens izmanto gadžetu! 💥\nBojājums: " + gadzetaBojajums + " ATK", 
+            JOptionPane.showMessageDialog(null, "Betmens izmanto gadžetu!\nBojājums: " + gadzetaBojajums + " ATK", 
                     "Gadžets", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Nav pieejamu gadžetu! 😕", 
+            JOptionPane.showMessageDialog(null, "Nav pieejamu gadžetu!", 
                     "Kļūda", JOptionPane.WARNING_MESSAGE);
         }
     }
@@ -45,10 +45,10 @@ public class Betmens extends Supervaronis {
     public void mainitIeroci() {
         if(ierocis) {
             this.ierATKBonus = rand.nextInt(15, 51);
-            JOptionPane.showMessageDialog(null, "Ierocis nomainīts! 🗡️\nJaunais bonuss: " + ierATKBonus + " ATK", 
+            JOptionPane.showMessageDialog(null, "Ierocis nomainīts!\nJaunais bonuss: " + ierATKBonus + " ATK", 
                     "Ierocis", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Nav ieroča! 😕", 
+            JOptionPane.showMessageDialog(null, "Nav ieroča!", 
                     "Kļūda", JOptionPane.WARNING_MESSAGE);
         }
     }
@@ -69,7 +69,7 @@ public class Betmens extends Supervaronis {
         if(ierocis) {
             ierocis = false;
             ierATKBonus = 0;
-            JOptionPane.showMessageDialog(null, "Ierocis noņemts! 🗡️", 
+            JOptionPane.showMessageDialog(null, "Ierocis noņemts!", 
                     "Ierocis", JOptionPane.INFORMATION_MESSAGE);
         }
     }

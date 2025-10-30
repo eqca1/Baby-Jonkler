@@ -29,17 +29,17 @@ public class Dzokers extends Supervaronis {
                      "Kritiskā trieciena iespēja: " + KRIT + "%\n" +
                      "Izvairīšanās iespēja: " + IZVAIRISANA + "%\n" +
                      "Sprādzienbīstamība: " + (irSpridzins ? "Jā" : "Nē") + "\n" +
-                     "Psihiskais stāvoklis: Nestabilns 😈";
+                     "Psihiskais stāvoklis: Nestabilns";
         
         JOptionPane.showMessageDialog(null, info, "Džokera organisma dati", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void smieties() {
         String[] smiekls = {
-            "UAHA-HA-HA-HA-HA-HA-HAA! 😄",
-            "HA-HA-HA-HA! 😂",
-            "uahaHHh-ahAH-ahHA-haHA-Hah-A-HAh-a-hHA-AAA! 😆",
-            "UAHA-HA-HA-HAAAA 😜",
+            "UAHA-HA-HA-HA-HA-HA-HAA!",
+            "HA-HA-HA-HA!",
+            "uahaHHh-ahAH-ahHA-haHA-Hah-A-HAh-a-hHA-AAA!",
+            "UAHA-HA-HA-HAAAA",
         };
 
         String[] smiekluFaili = {
@@ -65,7 +65,7 @@ public class Dzokers extends Supervaronis {
             c.start();
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Nevar atskaņot smieklu skaņu! 😢", "Kļūda", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Nevar atskaņot smieklu skaņu!", "Kļūda", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -75,12 +75,12 @@ public class Dzokers extends Supervaronis {
             int bojajums = rand.nextInt(20, 61); // Izlases bojājuma apjoms
             JOptionPane.showMessageDialog(null, 
                 "BUM! 💥 Izraisīts " + bojajums + " bojājuma punktu sprādziens!\n" +
-                "Visi apkārtējie objekti iznīcināti! 💣", 
+                "Visi apkārtējie objekti iznīcināti!", 
                 "Sprādziens", JOptionPane.WARNING_MESSAGE);
             irSpridzins = false; // Sprāgstviela izlietota
         } else {
             JOptionPane.showMessageDialog(null, 
-                "Nav sprādzienvielu! 😕\nVajag atkal sagatavot kādu joku...", 
+                "Nav sprādzienvielu! \nVajag atkal sagatavot kādu joku...", 
                 "Nav sprādzienvielu", JOptionPane.INFORMATION_MESSAGE);
         }
     }
@@ -89,7 +89,7 @@ public class Dzokers extends Supervaronis {
     public void sagatavotJaunuJoku() {
         irSpridzins = true;
         JOptionPane.showMessageDialog(null, 
-            "Jauns joks sagatavots! 🃏\nKāds grasās kļūt par šī joka upuri? 😈", 
+            "Jauns joks sagatavots!\nKāds grasās kļūt par šī joka upuri?", 
             "Jauns joks", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -98,8 +98,8 @@ public class Dzokers extends Supervaronis {
         int izvairisanasVeriba = rand.nextInt(1, 101);
         if (izvairisanasVeriba <= IZVAIRISANA) {
             JOptionPane.showMessageDialog(null, 
-                "Džokers veikmiģi izvairījās no uzbrukuma! 🃏\n" +
-                "Viņš tikai smejas atkal... 😂", 
+                "Džokers veikmiģi izvairījās no uzbrukuma!\n" +
+                "Viņš tikai smejas atkal...", 
                 "Izvairīšanās", JOptionPane.INFORMATION_MESSAGE);
             return true; // Izvairījās
         }
@@ -114,9 +114,9 @@ public class Dzokers extends Supervaronis {
         if (kritVeriba <= KRIT) {
             int kritiskaisBojajums = pamatBojajums * 2;
             JOptionPane.showMessageDialog(null, 
-                "Kritiskais trieciens! 💥\n" +
+                "Kritiskais trieciens!\n" +
                 "Bojājums: " + kritiskaisBojajums + " HP\n" +
-                "Džokers ir neapturams! 😈", 
+                "Džokers ir neapturams!", 
                 "Kritisks trieciens", JOptionPane.WARNING_MESSAGE);
             return kritiskaisBojajums;
         } else {
@@ -157,11 +157,11 @@ public class Dzokers extends Supervaronis {
         if (KRIT < 80) {
             KRIT += 5;
             JOptionPane.showMessageDialog(null, 
-                "Kritiskā trieciena iespēja palielināta līdz " + KRIT + "%! 🔥", 
+                "Kritiskā trieciena iespēja palielināta līdz " + KRIT + "%!", 
                 "Uzlabojums", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, 
-                "Kritiskā trieciena iespēja jau ir maksimālā! 💪", 
+                "Kritiskā trieciena iespēja jau ir maksimālā!", 
                 "Maksimums", JOptionPane.WARNING_MESSAGE);
         }
     }
@@ -171,11 +171,11 @@ public class Dzokers extends Supervaronis {
         if (IZVAIRISANA < 60) {
             IZVAIRISANA += 5;
             JOptionPane.showMessageDialog(null, 
-                "Izvairīšanās iespēja palielināta līdz " + IZVAIRISANA + "%! 🃏", 
+                "Izvairīšanās iespēja palielināta līdz " + IZVAIRISANA + "%!", 
                 "Uzlabojums", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, 
-                "Izvairīšanās iespēja jau ir maksimālā! 🎭", 
+                "Izvairīšanās iespēja jau ir maksimālā!", 
                 "Maksimums", JOptionPane.WARNING_MESSAGE);
         }
     }

@@ -89,7 +89,7 @@ public class Supervaronis {
 		            }
 		            
 		            JOptionPane.showMessageDialog(null, 
-		                this.VARDS + " ir miris! 💀", 
+		                this.VARDS + " ir miris!", 
 		                "Nāve", JOptionPane.WARNING_MESSAGE);
 		        }
 		    }

@@ -180,7 +180,7 @@ public class Gotema {
 				if(IZCELSME == null) break;
 				if(IZCELSME.trim().isEmpty()) {
 				    String[] dzokeraIzcelsmes = {
-				        "Žurku konalizācija - kur ķīmija sajaucās ar prātu",
+				        "Žurku kanalizācija - kur ķīmija sajaucās ar prātu",
 				        "Gotemas apakšpasaules labirinti - kur pazuda cilvēcība", 
 				        "LVT psihiatriskā slimnīca - kur prāts beidzās un joki sākās",
 				        "Liepājas kanalizācija - kur izmetamais atrod dzīvību",
@@ -257,7 +257,7 @@ public class Gotema {
 			        JScrollPane scrollPane = new JScrollPane(textArea);
 			        scrollPane.setPreferredSize(new Dimension(500, 500));
 
-			        JOptionPane.showMessageDialog(null, scrollPane, "Varoņu saraksts 🦸‍♂️", JOptionPane.INFORMATION_MESSAGE);
+			        JOptionPane.showMessageDialog(null, scrollPane, "Varoņu saraksts", JOptionPane.INFORMATION_MESSAGE);
 			    } else {
 			        JOptionPane.showMessageDialog(null, "Sarakstā nav neviens varonis!", "Brīdinājums", JOptionPane.WARNING_MESSAGE);
 			    }
@@ -357,17 +357,17 @@ public class Gotema {
 			                String uzbrukumaTeksts = "";
 			                if (tagadVaronis instanceof Dzokers) {
 			                    bojajums = ((Dzokers) tagadVaronis).uzbrukt();
-			                    uzbrukumaTeksts = "🎭 Džokers uzbruk!";
+			                    uzbrukumaTeksts = "Džokers uzbruk!";
 			                } else if (tagadVaronis instanceof Betmens) {
 			                    Betmens betmens = (Betmens) tagadVaronis;
 			                    bojajums = betmens.noteiktKopegoBojajumu();
 			                    String ierocaInfo = betmens.vaiIrIerocis() ? 
 			                            " (ieskaitot ieroča bonusu: " + betmens.noteiktIerocaBonusu() + " ATK)" : "";
-			                    uzbrukumaTeksts = "🦇 Betmens uzbruk! \nBojājums: " + bojajums + " ATK" + ierocaInfo;
+			                    uzbrukumaTeksts = "Betmens uzbruk! \nBojājums: " + bojajums + " ATK" + ierocaInfo;
 			                    JOptionPane.showMessageDialog(null, uzbrukumaTeksts, "Uzbrukums", JOptionPane.INFORMATION_MESSAGE);
 			                } else {
 			                    bojajums = ((Supervaronis) tagadVaronis).noteiktSPEKS() / 2; // Samazināts no 100% uz 50%
-			                    uzbrukumaTeksts = "🦸 Varonis uzbruk! \nBojājums: " + bojajums + " ATK";
+			                    uzbrukumaTeksts = "Varonis uzbruk! \nBojājums: " + bojajums + " ATK";
 			                    JOptionPane.showMessageDialog(null, uzbrukumaTeksts, "Uzbrukums", JOptionPane.INFORMATION_MESSAGE);
 			                }
 			                
@@ -392,9 +392,9 @@ public class Gotema {
 			                    atskaņotSkanu("./audio/victory.wav");
 			                    
 			                    JOptionPane.showMessageDialog(null, 
-			                        "⚔️ " + ((Supervaronis)tagadVaronis).noteiktVARDS() + " UZVARĒJA! ⚔️\n" +
-			                        merkis.noteiktVARDS() + " ir zaudējis cīņu! 💀\n\n" +
-			                        "Uzvarētājs: " + ((Supervaronis)tagadVaronis).noteiktVARDS() + " 🏆",
+			                        "⚔️ " + ((Supervaronis)tagadVaronis).noteiktVARDS() + " UZVARĒJA!\n" +
+			                        merkis.noteiktVARDS() + " ir zaudējis cīņu!\n\n" +
+			                        "Uzvarētājs: " + ((Supervaronis)tagadVaronis).noteiktVARDS(),
 			                        "Cīņas Rezultāts", JOptionPane.WARNING_MESSAGE);
 			                    
 			                    varoni.remove(merkis);
