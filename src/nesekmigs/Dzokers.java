@@ -121,7 +121,7 @@ public class Dzokers extends Supervaronis {
             return kritiskaisBojajums;
         } else {
             JOptionPane.showMessageDialog(null, 
-                "Džokers uzbruk! 🃏\nBojājums: " + pamatBojajums + " HP", 
+                "Džokers uzbruk!\nBojājums: " + pamatBojajums + " HP", 
                 "Uzbrukums", JOptionPane.INFORMATION_MESSAGE);
             return pamatBojajums;
         }
@@ -131,7 +131,7 @@ public class Dzokers extends Supervaronis {
     @Override
     public String Izvadit() {
         return super.Izvadit() +
-               " | Kritiskā iespēja: " + KRIT + "%" +
+               "| Kritiskā iespēja: " + KRIT + "%" +
                " | Izvairīšanās: " + IZVAIRISANA + "%" +
                " | Sprādzieni: " + (irSpridzins ? "Jā" : "Nē") +
                "\n ";

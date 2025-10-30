@@ -82,4 +82,12 @@ public class Betmens extends Supervaronis {
         }
         return pamatBojajums;
     }
+
+@Override
+public String Izvadit() {
+    return super.Izvadit() +
+           "| Ierocis: " + (ierocis ? "Jā" : "Nē") + (ierocis ? " ("+ierATKBonus+" ATK)" : "") +
+           " | Gadžets: " + (gadzets ? "Jā" : "Nē") +
+           "\n ";
+}
 }

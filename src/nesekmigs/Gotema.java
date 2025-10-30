@@ -327,7 +327,7 @@ public class Gotema {
 			                break;
 			                
 			                
-			                //UZBRŪGT
+			                //UZBRŪKT
 			            case "Uzbrukt":
 			                int bojajums = 0;
 			                
