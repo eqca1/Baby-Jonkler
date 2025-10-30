@@ -30,6 +30,8 @@ public class Gotema {
 	
 		atskaņotSkanu("./audio/intro.wav");
 		
+		atskaņotSkanu("./audio/music.wav");
+		
 		Random rand = new Random();
 		
 		String izvele;
