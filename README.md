@@ -5,11 +5,11 @@
 </p>
 
 > [!IMPORTANT] **Pabeigtās klases**
-> - [x] Gotema _(galvenā klase)_
-> - [x] Supervaronis _(virsklase)_
-> - [x] Dzokers _(apakšklase)_
-> - [x] Betmens _(apakšklase)_
-> - [x] Metodes _(palīgklase)_
+- [x] Gotema _(galvenā klase)_
+- [x] Supervaronis _(virsklase)_
+- [x] Dzokers _(apakšklase)_
+- [x] Betmens _(apakšklase)_
+- [x] Metodes _(palīgklase)_
 
 **Programmas funkciju saraksts**
 - [x] Jaumus klašu objektus veidošana
