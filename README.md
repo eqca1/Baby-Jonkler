@@ -18,5 +18,5 @@
 - [x] Raksturojošās metodes izsaukšana
 
 **Papildu funkcijas**
-- [x] https://github.com/eqca1/Baby-Jonkler/tree/main/audio
-- [x] https://github.com/eqca1/Baby-Jonkler/tree/main/atteli 
+- [x] [Skaņas un fona mūzika](https://github.com/eqca1/Baby-Jonkler/tree/main/audio)
+- [x] [Attēli, veidojot varoni](https://github.com/eqca1/Baby-Jonkler/tree/main/atteli)
