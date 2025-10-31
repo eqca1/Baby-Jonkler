@@ -74,7 +74,7 @@ public class Dzokers extends Supervaronis {
         if (irSpridzins) {
             int bojajums = rand.nextInt(20, 61); // Izlases bojājuma apjoms
             JOptionPane.showMessageDialog(null, 
-                "BUM! 💥 Izraisīts " + bojajums + " bojājuma punktu sprādziens!\n" +
+                "BUM! Izraisīts " + bojajums + " bojājuma punktu sprādziens!\n" +
                 "Visi apkārtējie objekti iznīcināti!", 
                 "Sprādziens", JOptionPane.WARNING_MESSAGE);
             irSpridzins = false; // Sprāgstviela izlietota
@@ -89,7 +89,7 @@ public class Dzokers extends Supervaronis {
     public void sagatavotJaunuJoku() {
         irSpridzins = true;
         JOptionPane.showMessageDialog(null, 
-            "Jauns joks sagatavots!\nKāds grasās kļūt par šī joka upuri?", 
+            "Jauns joks sagatavots!", 
             "Jauns joks", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -137,17 +137,17 @@ public class Dzokers extends Supervaronis {
                "\n ";
     }
 
-    // Atgriež kritiskā trieciena vērtību
+    //kritiskā trieciena vērtību
     public int noteiktKrit() {
         return KRIT;
     }
     
-    // Atgriež izvairīšanās vērtību
+    //izvairīšanās vērtību
     public int noteiktIZVAIRISANA() {
         return IZVAIRISANA;
     }
 
-    // Pārbauda, vai ir sprāgstviela
+    //vai ir sprāgstviela
     public boolean vaiIrSpridzins() {
         return irSpridzins;
     }

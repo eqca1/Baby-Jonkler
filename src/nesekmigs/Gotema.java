@@ -407,7 +407,7 @@ public class Gotema {
 			                
 			                // Pārbauda, vai mērķis ir miris
 			                if (!merkis.vaiIrDzivs()) {
-			                    // Atskaņo victory sound
+			                    
 			                    atskaņotSkanu("./audio/victory.wav");
 			                    
 			                    JOptionPane.showMessageDialog(null, 
