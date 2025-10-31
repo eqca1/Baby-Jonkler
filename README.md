@@ -12,11 +12,14 @@
 - [x] Metodes _(palīgklase)_
 
 **Programmas funkciju saraksts**
-- [x] Jaumus klašu objektus veidošana
+- [x] Jaunus klašu objektus veidošana
 - [x] Objektus apskatīšana
 - [x] Objektus dzēšana
 - [x] Raksturojošās metodes izsaukšana
 
 **Papildu funkcijas**
-- [x] [Skaņas un fona mūzika](https://github.com/eqca1/Baby-Jonkler/tree/main/audio)
-- [x] [Attēli, veidojot varoni](https://github.com/eqca1/Baby-Jonkler/tree/main/atteli)
+- [x] [Skaņas un fona mūzika](https://github.com/eqca1/Baby-Jonkler/tree/main/audio) :musical_note:	
+- [x] [Attēli, veidojot varoni](https://github.com/eqca1/Baby-Jonkler/tree/main/atteli) :camera:	
+
+> [!IMPORTANT]
+> :octocat:	
