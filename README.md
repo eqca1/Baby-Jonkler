@@ -23,5 +23,5 @@
 
 
 
-> [!IMPORTANT]
+> [!CAUTION]
 > :octocat:	
