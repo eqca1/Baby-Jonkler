@@ -16,3 +16,7 @@
 - [x] Objektus apskatīšana
 - [x] Objektus dzēšana
 - [x] Raksturojošās metodes izsaukšana
+
+**Papildu funkcijas**
+- [x] https://github.com/eqca1/Baby-Jonkler/tree/main/audio
+- [x] https://github.com/eqca1/Baby-Jonkler/tree/main/atteli 
