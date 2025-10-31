@@ -5,11 +5,11 @@
 </p>
 
 **Pabeigtās klases**
-- [x] Gotema _(galvenā klase)_
-- [x] Supervaronis _(virsklase)_
-- [x] Dzokers _(apakšklase)_
-- [x] Betmens _(apakšklase)_
-- [x] Metodes _(palīgklase)_
+- [x] [Gotema _(galvenā klase)_](https://github.com/eqca1/Baby-Jonkler/blob/main/src/nesekmigs/Gotema.java)
+- [x] [Supervaronis _(virsklase)_](https://github.com/eqca1/Baby-Jonkler/blob/main/src/nesekmigs/Supervaronis.java)
+- [x] [Dzokers _(apakšklase)_](https://github.com/eqca1/Baby-Jonkler/blob/main/src/nesekmigs/Dzokers.java)
+- [x] [Betmens _(apakšklase)_](https://github.com/eqca1/Baby-Jonkler/blob/main/src/nesekmigs/Betmens.java)
+- [x] [Metodes _(palīgklase)_](https://github.com/eqca1/Baby-Jonkler/blob/main/src/nesekmigs/Metodes.java)
 
 **Programmas funkciju saraksts**
 - [x] Jaunus klašu objektus veidošana
