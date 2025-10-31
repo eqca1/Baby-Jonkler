@@ -1,7 +1,9 @@
 # Projekts "Gotemas varoņi un ļaundari"
 
 ![Galvēnais superļaundars](https://preview.redd.it/why-does-jonkler-barely-have-any-teeth-is-he-stupid-v0-x7ckf17ff1rf1.jpeg?width=640&auto=webp&s=a1c41707e701b94425b06db2b8676aa5239974d5)
-
+<p align="center">
+  <img width="460" height="300" src="[https://picsum.photos/460/300](https://preview.redd.it/why-does-jonkler-barely-have-any-teeth-is-he-stupid-v0-x7ckf17ff1rf1.jpeg?width=640&auto=webp&s=a1c41707e701b94425b06db2b8676aa5239974d5)">
+</p>
 
 **Pabeigtās klases**
 - [x] Gotema _(galvenā klase)_
