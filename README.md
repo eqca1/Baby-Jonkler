@@ -21,5 +21,7 @@
 - [x] [Skaņas un fona mūzika](https://github.com/eqca1/Baby-Jonkler/tree/main/audio) :musical_note:	
 - [x] [Attēli, veidojot varoni](https://github.com/eqca1/Baby-Jonkler/tree/main/atteli) :camera:	
 
+
+
 > [!IMPORTANT]
 > :octocat:	
